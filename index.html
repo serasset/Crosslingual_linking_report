@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Guidelines for Cross-lingual linking</title>
+    <meta charset='utf-8'>
+    <script src='https://www.w3.org/Tools/respec/respec-w3c'
+            async class='remove'></script>
+	<link rel="stylesheet" href="stylesheets/codemirror.css"> 
+	<script src="javascripts/codemirror-compressed.js"></script>
+	<script src="http://codemirror.net/mode/sparql/sparql.js"></script>
+	<script src="http://codemirror.net/addon/runmode/runmode.js"></script>
+	<script src="http://codemirror.net/addon/runmode/colorize.js"></script>
+
+    <script class='remove'>
+      var respecConfig = {
+
+          specStatus: "CG-DRAFT",
+          doRDFa: "1.1",
+          shortName:  "cl-bpmlod",
+		  publishDate:  "2023-11-08",
+          editors: [
+               {   name:       "TBC",
+                    url:        "TBC",
+                    company:    "TBC",
+                    companyURL: "TBC" }
+          ],
+		  authors: [
+               {   name:       "TBC",
+                    url:        "TBC",
+                    company:    "TBC",
+                    companyURL: "TBC" },
+				{   name:       "TBC",
+                    url:        "TBC",
+                    company:    "TBC",
+                    companyURL: "TBC" },
+					
+          ],
+		  group: "bpmlod",
+		  previousMaturity: "",
+	      previousPublishDate:  "",
+          wg:           "Best Practices for Multilingual Linked Open Data",
+          wgURI:        "http://www.w3.org/community/bpmlod/",
+          wgPublicList: "http://lists.w3.org/Archives/Public/public-bpmlod/",
+//          wgPatentURI:  "http://www.w3.org/2004/01/pp-impl/424242/status",
+      };
+    </script>
+	<link rel="stylesheet" href="stylesheets/codemirror.css">
+    <script src="javascripts/codemirror.js"></script>
+  </head>
+  <body>
+    <section id='abstract'>
+      <p> 
+       This document is aimed to give advice on different representation mechanisms to link data across different languages on the Semantic Web. We will first enumerate the types of language resources where such guidelnaes are applicable. Then, we will review different levels of crosslingual linking, following an adapted version of the Vaquois triangle as inpiration. We will analyse each possibility (e.g., linking at the conceptual level, at the lexical level, etc.), exemplify them with real cases, and discuss their pros and cons. Finally we will review, from a practical point of view, the different reppresentation mechanisms available to describe links across linguistic data in different languages. Note that this guidelines focus on general representation issues of cross-lingual data, not entering into any techniques for cross-lingual link discovery or ontology mapping.  
+	</p>   
+	   
+		
+	 
+    </section>
+
+
+    <section id='sotd'>
+  <!--    <p>This document was published by the <a href="http://www.w3.org/community/bpmlod/">Best Practices for Multilingual Linked Open Data</a> community group.
+       It is not a W3C Standard nor is it on the W3C Standards Track.</p>
+  -->    <p>There are a number of ways that one may participate in the development of this report:</p>
+      <ul>
+      <li>Mailing list: <a href="http://lists.w3.org/Archives/Public/public-bpmlod/">public-bpmlod@w3.org</a>
+      <li>Wiki: <a href="https://www.w3.org/community/bpmlod/wiki/Main_Page">Main page</a>
+      <li>More information about meetings of the BPMLOD group can be obtained 
+        <a href="https://www.w3.org/community/bpmlod/wiki/Meetings_of_the_community_group">here</a></li>
+
+	  <li><a href="https://github.com/bpmlod/Bilingual_Dictionaries_Report">Source code</a> 
+	     for this document can be found on Github.</li>
+      </ul>
+    </section>
+
+
+<p>
+-------------------
+UNDER CONSTRUCTION
+-------------------
+</p>
+
+    
+   <section>
+      <h2>Types of resources</h2>
+		<p> TBC
+			[ Quick enumeration of the types of language resources that can be subject of this guidelines, despite we will exemplify just a few of them (dictionaries, mostly) to keep the guidelines simple. Dictionaries, ontologies, terminologies, taxonomies, encyclopedic resources; we will focus on entity-centered resources. ]
+
+		</p>
+  
+  <!--      <p>The type of language resources covered in this document is <i>bilingual electronic dictionaries</i>. A <a href="http://en.wikipedia.org/wiki/Bilingual_dictionary">bilingual dictionary</a> is a specialized dictionary used to translate words or phrases from one language to another. They can be unidirectional or bidirectional, allowing translation, in the latter case, to and from both languages. In addition to the translation, a bilingual dictionary usually indicates the part of speech, gender, verb type, declination model and other grammatical properties to help a non-native speaker use the word. 
+	  </p><p>
+	  We are interested in bilingual dictionaries that have their data in a machine-processable format, no matter whether it is stored locally or is accessible on the Web (e.g., for download). We assume that the data is represented in a structured or semi-structured way (e.g., relational database, xml, csv, etc.).
+	  </p><p>
+	  We will illustrate our discussion with real examples from the conversion of the Apertium dictionaries into RDF [<cite><a href="#bib-ap_rdf">AP_RDF</a></cite>]. Apertium [<cite><a href="#bib-ap_paper">AP_PAPER</a></cite>] is a free/open-source machine translation platform originally designed to translate between closely related languages, although it has recently been expanded to treat more divergent language pairs. There exist Lexical Markup Framework [<cite><a href="#bib-lmf">LMF</a></cite>] versions of their linguistic data which can be found <a href="http://metashare.upf.edu/repository/search/?q=apertium+lmf">here</a></cite> and have been used as starting point for the RDF version.  TO UPDATE WITH REFERENCE TO ORIGINAL APERTIUM FORMATS AND MORE RECENT CONVERSION IN ISWC'21 PAPER
+      </p>
+-->  
+  </section> 
+ 
+ 
+	<section>
+      <h2>Levels of cross-lingual linking</h2>
+      <p> TBC
+	  </p>
+	  
+	<section>
+      
+	  <h3> The adapted Vaquois triangle </h3>
+	  <p> TBC
+	  
+	    The adapted Vaquois triangle, for the cross-lingual linking case, is illustrated in the following figure.
+	   <br>
+	   <figure id="fig1">
+			<center>
+			<img style="width: 90%" src="./img/Adapted Vaquois.png" alt="Adapted Vaquois triangle.png">
+			<figcaption><span class="fig-title">Adapted Vaquois triangle</span></figcaption>
+			</center>
+      </figure>
+	  
+	  </p>
+    </section> 
+
+	<section>
+      
+	  <h3> Examples </h3>
+	  <p> TBC
+	  </p>
+    </section> 
+	
+	
+	<section>
+      
+	  <h3> Guidelines </h3>
+	  <p> TBC
+	  </p>
+    </section> 
+	
+	
+	<section>
+    </section> 
+	
+	<section>
+   <h2> Representation mechanisms </h2>
+	  <p> TBC
+	  
+	 [ Something extracted/adapted from this reference card https://lider-project.eu/lider-project.eu/sites/default/files/referencecards/How-to-represent-crosslingual-links-Reference-Card.pdf. See https://www.w3.org/TR/dwbp/#bp-template for inspiration ]
+
+	  </p>
+    </section> 
+ 
+   <h2>Acknowledgements</h2>
+   The authors would like to thank the BPMLOD community group members for their valuable feedback. 
+   
+   <h2>References</h2> TO BE UPDATED
+
+    
+<dt id="bib-ap_paper">[AP_PAPER]</dt>
+<dd> M. Forcada, M. Ginestí-Rosell, J. Nordfalk, J. O'Regan, S. Ortiz-Rojas, J. Pérez-Ortiz, F. Sánchez-Martínez, G. Ramírez-Sánchez, and F. Tyers,  <a href="http://link.springer.com/article/10.1007%2Fs10590-011-9090-0"> <cite>Apertium: a free/open-source platform for rule-based machine translation </cite></a>. Machine Translation, vol. 25, no. 2, pp. 127-144, 2011. 
+
+<dt id="bib-ap_rdf">[AP_RDF]</dt>
+<dd>RDF version of the Apertium bilingual dictionaries. URL: <a href="http://linguistic.linkeddata.es/apertium/">http://linguistic.linkeddata.es/apertium/</a>
+
+<dt id="bib-dc">[DC]</dt>
+<dd>DCMI Metadata Terms. URL: <a href="http://purl.org/dc/elements/1.1/">http://purl.org/dc/elements/1.1/</a>
+
+<dt id="bib-dcat">[DCAT]</dt>
+<dd>F. Maali, J. Erickson (Eds.). Data Catalog Vocabulary (DCAT). W3C Recommendation. January 2014 URL: <a href="http://www.w3.org/TR/vocab-dcat/">http://www.w3.org/TR/vocab-dcat/</a>
+
+<dt id="bib-guide_mld">[GUIDE_MLD]</dt>
+<dd>A. Gómez-Pérez, D. Vila-Suero, E. Montiel-Ponsoda, J. Gracia, and G. Aguado-de Cea, <a href="http://dx.doi.org/10.1145/2479787.2479867"> <cite> Guidelines for multilingual linked data </cite></a>, in Proceedings of the 3rd International Conference on Web Intelligence, Mining and Semantics (WIMS'13).  New York, NY, USA: ACM, Jun. 2013.
+
+<dt id="bib-isa_uris">[ISA_URIS]</dt>
+<dd>P. Archer, S. Goedertier, and N. Loutas,  <a href="https://joinup.ec.europa.eu/sites/default/files/c0/7d/10/D7.1.3%20-%20Study%20on%20persistent%20URIs.pdf"> <cite> Study on persistent URIs </cite></a> Tech. Rep., ISA, Dec. 2012. 
+  
+<dt id="bib-lemon_paper">[LEMON_PAPER]</dt>
+<dd>J. McCrae, G. Aguado-de Cea, P. Buitelaar, P. Cimiano, T. Declerck, A. Gómez-Pérez, J. Gracia, L. Hollink, E. Montiel-Ponsoda, D. Spohr, and T. Wunner, <a href="http://dx.doi.org/10.1007/s10579-012-9182-3"> <cite>Interchanging lexical resources on the Semantic Web </cite></a>.  Language Resources and Evaluation, vol. 46, 2012.  
+  
+<dt id="bib-lemon">[LEMON]</dt>
+<dd> The lemon model.  URL: <a href="http://lemon-model.net/">http://lemon-model.net/</a> 
+
+<dt id="bib-lexinfo">[LEXINFO]</dt>
+<dd> Lexinfo.  URL: <a href="https://lexinfo.net/index.html">https://lexinfo.net/index.html</a> 
+
+<dt id="bib-lmf">[LMF]</dt>
+<dd> Lexical Markup Framework (LMF).  URL: <a href="http://www.lexicalmarkupframework.org/">http://www.lexicalmarkupframework.org/</a> 
+
+<dt id="bib-ontolex">[ONTOLEX]</dt>
+<dd> Lexicon Model for Ontologies.  URL: <a href="https://www.w3.org/2016/05/ontolex/">https://www.w3.org/2016/05/ontolex/</a> 
+
+<dt id="bib-ontolex_paper">[ONTOLEX_PAPER]</dt>
+<dd>John P McCrae, Julia Bosque-Gil, Jorge Gracia, Paul Buitelaar, and Philipp Cimiano, <a href="https://elex.link/elex2017/wp-content/uploads/2017/09/paper36.pdf"> <cite>The Ontolex-Lemon model: development and applications </cite></a>.  Proceedings of eLex 2017 conference.  
+  
+
+<dt id="bib-tr">[TR]</dt>
+<dd> Translation Module.  URL: <a href="http://purl.org/net/translation">http://purl.org/net/translation</a>
+
+
+<dt id="bib-tr_paper">[TR_PAPER]</dt>
+<dd> J. Gracia, E. Montiel-Ponsoda, D. Vila-Suero, and G. Aguado-de Cea, <a href="http://www.lrec-conf.org/proceedings/lrec2014/pdf/863_Paper.pdf">	<cite>Enabling language resources to expose translations as linked data on the web</cite></a>, in Proc. of 9th Language Resources and Evaluation Conference (LREC'14), Reykjavik (Iceland), May 2014.
+
+
+<dt id="bib-trcat">[TRCAT]</dt>
+<dd> OEG Translation Categories.  URL: <a href="http://purl.org/net/translation-categories">http://purl.org/net/translation-categories</a>
+
+<dt id="bib-void">[VOID]</dt>
+<dd>K. Alexander, R. Cyganiak, M. Hausenblas, J. Zhao, Describing Linked Datasets with the VoID Vocabulary. W3C Interest Group Note. March 2011. URL: <a href="http://www.w3.org/TR/void/">http://www.w3.org/TR/void/</a>
+
+
+</body>
+<script>
+ setTimeout(function(){CodeMirror.colorize();}, 20);
+</script>
+
+</html>
