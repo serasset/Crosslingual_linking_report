@@ -50,13 +50,11 @@
   <body>
     <section id='abstract'>
       <p> 
-       This document is aimed to give advice on different representation mechanisms to link data across different languages on the Semantic Web. We will first enumerate the types of language resources where such guidelnaes are applicable. Then, we will review different levels of crosslingual linking, following an adapted version of the Vaquois triangle as inpiration. We will analyse each possibility (e.g., linking at the conceptual level, at the lexical level, etc.), exemplify them with real cases, and discuss their pros and cons. Finally we will review, from a practical point of view, the different reppresentation mechanisms available to describe links across linguistic data in different languages. Note that this guidelines focus on general representation issues of cross-lingual data, not entering into any techniques for cross-lingual link discovery or ontology mapping.  
-	</p>   
-	   
-		
-	 
+  This document aims to give advice on different representation mechanisms for linking data across different languages on the Semantic Web. We first outline the scope of the guidelines, clarifying the intended audience and the types of language resource to which they apply. Then, inspired by an adapted version of the Vauquois Triangle, we review the different possible levels of representation at which cross-lingual linking can be implemented.  We analyse each possibility (e.g., linking at the conceptual level, at the lexical level, etc.) and exemplify them with real cases. Then, we give concrete advice on how to model cross-lingual links in the light of an adapted Vauquois Triangle. Then, we give concrete advice on how to model cross-lingual links in the light of this adapted Vauquois Triangle. Finally, we review, from a practical point of view, the different representation mechanisms available to describe links across linguistic data in different languages. Note that whilst recognising the relevance of techniques for automated cross-lingual link discovery, these guidelines focus on general representation issues of cross-lingual data.
+	      
+     </p>   
+ 
     </section>
-
 
     <section id='sotd'>
   <!--    <p>This document was published by the <a href="http://www.w3.org/community/bpmlod/">Best Practices for Multilingual Linked Open Data</a> community group.
@@ -79,8 +77,14 @@
 UNDER CONSTRUCTION
 -------------------
 </p>
+ <section>
+    <h2>Scope of Guidelines</h2>
+    These guidelines are intended for producers of resources which involve several languages and links among them. Inevitably, such resources involve the modelling and creation of cross-lingual (CL) links. Such links enable CL access to lexical and semantic representation. They also facilitate dynamic computation (via federated queries) of lexical equivalences between languages.
 
-    
+There are diverse ways in which such links can be implemented, depending on which kinds of entities are linked and the relations available to link them together. This diversity gives rise to the problem of choosing an implementation method. 
+
+Our main objective is to provide a perspective from which to resolve this problem based on an adapted version of the Vauquois Triangle  (Vauquois 1968). This offers a point of departure for comparing different CL linking methods within the linguistic linked (open) data (LLD) framework and thus a basis for practical advice on how to proceed with linking data associated with different languages. 
+ </section>
    <section>
       <h2>Types of resources</h2>
 		<p> TBC
