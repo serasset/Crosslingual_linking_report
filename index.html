@@ -117,9 +117,9 @@ Our main objective is to provide a perspective from which to resolve this proble
  </section>
 	<section>
       <h2>Levels of cross-lingual linking</h2>
-      <p> CL links associate items in one language with items expressed in another language. Such links are usually directional with the two languages being referred to as source and target. They are used to create resources for a variety of applications such as CL information retrieval, word translation, CL ontology mapping, and machine translation. </p>
-      <p> Previous works have recognised that both monolingual and CL linking can occur at different levels. For instance, writing from a Semantic Web perspective, Gracia et al. (2012) consider that links can be established at three different levels: conceptual level, where links are established between classes or properties as modelled in an ontology or vocabulary; instance level, where links are established between specific individuals/entities belonging to certain ontology classes;  linguistic level, where links are established between the linguistic manifestation of the ontology entities (e.g., their associated lexical entries). </p>
-       <p> In order to clarify the usage of levels in CL linking, we make use of the Adapted Vauquois Triangle, shown in Figure 1, to present the various ways in which CL links can be implemented. This is an adaptation of the Vauquois Triangle first proposed by Bernard Vauquois in 1968 to illustrate a range of possible architectures for rule-driven transfer-based MT systems current during the 1970s and 80s. Two important aspects of the original triangle are retained. First, the horizontal dimension reflects cross-linguality, the left and right sides referring to source and target languages respectively. Second, the vertical dimension represents different levels of semantic abstraction. The original triangle pre-specifies the intermediate levels. However, the adapted version differs in the number and choice of levels. At the bottom is the surface linguistic form, e.g., a word, and at the top is an ontological referent, i.e., something conceptual and purely semantic, constituting an entity or element within an ontology. In between these extremes, moving upward, are a series of levels that proceed from the surface towards the meaning.  </p>
+      <p> CL links associate items in one language with items expressed in another language. Such links are usually directional with the two languages being referred to as <em>source</em> and <em>target</em>. They are used to create resources for a variety of applications such as CL information retrieval, word translation, CL ontology mapping, and machine translation. </p>
+      <p> Previous works have recognised that both monolingual and CL linking can occur at different levels. For instance, writing from a Semantic Web perspective, Gracia et al. (2012)  [ADD CITE] consider that links can be established at three different levels: <em>conceptual level</em>, where links are established between classes or properties as modelled in an ontology or vocabulary; <em>instance level</em>, where links are established between specific individuals/entities belonging to certain ontology classes; and <em>linguistic level</em>, where links are established between the linguistic manifestation of the ontology entities (e.g., their associated lexical entries). </p>
+       <p> In order to clarify the usage of levels in CL linking, we make use of the <em>Adapted Vauquois Triangle</em>, shown in Figure 1, to present the various ways in which CL links can be implemented. This is an adaptation of the Vauquois Triangle first proposed by Bernard Vauquois in 1968 to illustrate a range of possible architectures for rule-driven transfer-based MT systems current during the 1970s and 80s. Two important aspects of the original triangle are retained. First, the horizontal dimension reflects cross-linguality, the left and right sides referring to <em>source</em> and <em>target</em> languages respectively. Second, the vertical dimension represents different levels of semantic abstraction. The original triangle pre-specifies the intermediate levels. However, the adapted version differs in the number and choice of levels. At the bottom is the surface linguistic form, e.g., a word, and at the top is an ontological referent, i.e., something conceptual and purely semantic, constituting an entity or element within an ontology. In between these extremes, moving upward, are a series of levels that proceed from the surface towards the meaning.  </p>
 	  
 	The adapted Vauquois triangle, for the cross-lingual linking case, is illustrated in the following figure.
 	   <br>
@@ -132,19 +132,19 @@ Our main objective is to provide a perspective from which to resolve this proble
 
 <p> The ontological referent serves as a natural vertex that joins the two edges, in each respective language, and allows traversing the triangle from one language to the other, reaching any possible lexical-semantic level from source to target and vice-versa. In reality, however, the common vertex is often missing, thus obliging to linking at other levels. </p>
 
-<p> The choice of levels is largely inspired by Ontolex, a W3C lexicon model for ontologies which includes some of the definitions reproduced below: </p>
+<p> The choice of levels is largely inspired by Ontolex [ADD CITE], a W3C lexicon model for ontologies which includes some of the definitions reproduced below: </p>
 
-<p> We understand the ontological referent as a conceptual element, a unit of thought, that can be represented in terms of an ontology entity (class, property, or individual). We assume that it is language neutral and can be lexicalised differently in different languages and can be adapted (or not) to a particular cultural and/or linguistic view. Its adaptation to such different languages or cultural views results in the concept that we refer to in the figure, which belongs to the edge of a particular language.  </p>
+<p> We understand the <b>ontological referent</b> as a conceptual element, a unit of thought, that can be represented in terms of an ontology entity (class, property, or individual). We assume that it is language neutral and can be lexicalised differently in different languages and can be adapted (or not) to a particular cultural and/or linguistic view. Its adaptation to such different languages or cultural views results in the <b>concept</b> that we refer to in the figure, which belongs to the edge of a particular language.  </p>
 
 <p> In practice, the concept (as in the case of the ontological referent) can be defined through an ontology entity (e.g, class, property, or individual in OWL or RDFS; but also through a skos:Concept or ontolex:LexicalConcept).  </p>
 
 <p> As an illustrative example of a ontological referent we show here a concept defined as a Interlingual Lexical Concept (CILI) in Global Wordnet. Notice that although a description is given in English (other languages can be added), the intention is to have a common referent for such a concept no matter the particular language. </p>
 
- <pre><code class="language-rdf">
-&lt;i36300&gt;	a	&lt;Concept&gt; ;
-	skos:definition	"a flight maneuver; aircraft tips laterally about its longitudinal 
-		         axis (especially in turning)"@en ;
-	dc:source	pwn30:00169305-n .
+ <pre><code>
+&lt;i36300&gt; a &lt;Concept&gt; ;
+               skos:definition "a flight maneuver; aircraft tips laterally about its longitudinal 
+                                axis (especially in turning)"@en ;
+               dc:source pwn30:00169305-n .
  </code></pre>
 	
 Such a common ontological referent can be associated with specific monolingual concepts. In our example, with Wordnet synsets in English and German:
@@ -153,6 +153,44 @@ Such a common ontological referent can be associated with specific monolingual c
 ili:i36300 	owl:sameAs 	pwn31:100170126-n . # bank
 ili:i36300	owl:sameAs	odwn13:00169305-n . # rol, wenden, wending, rollen
  </pre></code>		
+
+A <b>lexical sense</b> represents the lexical meaning of a lexical entry when interpreted as referring to the corresponding ontology element. A lexical sense thus represents a reification of a pair of a uniquely determined lexical entry and a uniquely determined ontology entity it refers to. A link between a lexical entry and an ontology entity via a lexical sense object implies that the lexical entry can be used to refer to the ontology entity in question. 
+
+A <b>lexical entry</b> represents a unit of analysis of the lexicon that consists of a set of forms that are grammatically related and a set of base meanings that are associated with all of these forms. Thus, a lexical entry is a word, multiword expression or affix with a single part-of-speech, morphological pattern, etymology and set of senses..
+
+Following our running example, different lexical senses can be defined to associate different WordNet concepts with the lexical entry for “bank”:
+
+<pre><code>	
+:bank_n1 a ontolex:LexicalEntry;
+    ontolex:sense :bank_sense1;
+    ontolex:sense :bank_sense2.
+	
+:bank_sense1 a ontolex:LexicalSense;
+    ontolex:reference pwn31:100170126-n. #bank as a “flight maneuver”
+	
+:bank_sense2 a ontolex:LexicalSense;
+    ontolex:reference pwn31:108437235-n.   #bank as a “depository financial institution”
+</code></pre>	
+
+	
+The <b>lexical form</b> property relates a lexical entry to one grammatical form variant of the lexical entry. ​​It represents one grammatical realisation of a lexical entry. Different forms are used to express different morphological realisations of the entry (e.g. plural vs singular or canonical vs non-canonical). 
+Finally, a form can have an associated <em>written representation</em>, but also others such as the <em>phonetic representation</em>. We refer to such a “bottom” representation level as <b>surface form</b> in this document, despite the term not being used as such in the Ontolex specification. 
+
+For example, the plural form of the English noun bank may be described by the following lexical form, with their corresponding surface forms (written and phonetic representations, in the example):
+
+<pre><code>	
+:bank_n1 ontolex:lexicalForm :bank-n1-pl-form.
+
+:bank_n1_pl_form a ontolex:LexicalForm ;
+                 ontolex:writtenRep “banks”@en; 
+                 ontolex:phoneticRep “/bæŋks/”@en-fonipa; 
+                 lexinfo:number lexinfo:plural . 
+</code></pre>
+
+	
+Notice that a common surface form may correspond to several lexical forms, e.g., the surface form “banks”@en may correspond to several lexical forms, among which the plural form of the noun bank or the third person singular form of the verb bank. The same goes for the surface form “/bæŋks/”@en-fonipa. 
+
+
 		
 <p>
 -------------------
