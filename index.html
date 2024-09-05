@@ -5,18 +5,15 @@
     <meta charset='utf-8'>
     <script src='https://www.w3.org/Tools/respec/respec-w3c'
             async class='remove'></script>
-	<link rel="stylesheet" href="stylesheets/codemirror.css"> 
-	<script src="javascripts/codemirror-compressed.js"></script>
-	<script src="http://codemirror.net/mode/sparql/sparql.js"></script>
-	<script src="http://codemirror.net/addon/runmode/runmode.js"></script>
-	<script src="http://codemirror.net/addon/runmode/colorize.js"></script>
+    <link rel="stylesheet" href="stylesheets/codemirror.css"> 
+    <script src="javascripts/codemirror-compressed.js"></script>
+    <script src="http://codemirror.net/mode/sparql/sparql.js"></script>
+    <script src="http://codemirror.net/addon/runmode/runmode.js"></script>
+    <script src="http://codemirror.net/addon/runmode/colorize.js"></script>
 
-
-
-	<script src="javascripts/codemirror-compressed.js"></script>
-	<script src="javascripts/sparql.js"></script>
-	<script src="javascripts/runmode.js"></script>
-	<script src="javascripts/colorize.js"></script>
+    <script src="javascripts/sparql.js"></script>
+    <script src="javascripts/runmode.js"></script>
+    <script src="javascripts/colorize.js"></script>
 	  
     <script class='remove'>
       var respecConfig = {
@@ -143,12 +140,12 @@ Our main objective is to provide a perspective from which to resolve this proble
 
 <p> As an illustrative example of a ontological referent we show here a concept defined as a Interlingual Lexical Concept (CILI) in Global Wordnet. Notice that although a description is given in English (other languages can be added), the intention is to have a common referent for such a concept no matter the particular language. </p>
 
-	 <pre><code class="cm">	
+ <pre><code class="language-rdf">
 &lt;i36300&gt;	a	&lt;Concept&gt; ;
 	skos:definition	"a flight maneuver; aircraft tips laterally about its longitudinal 
 		         axis (especially in turning)"@en ;
 	dc:source	pwn30:00169305-n .
-	 </code></pre>
+ </code></pre>
 	
 Such a common ontological referent can be associated with specific monolingual concepts. In our example, with Wordnet synsets in English and German:
 
