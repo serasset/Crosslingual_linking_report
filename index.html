@@ -87,11 +87,6 @@
     </section>
 
 
-<p>
--------------------
-UNDER CONSTRUCTION
--------------------
-</p>
  <section>
     <h2>Scope of Guidelines</h2>
     These guidelines are intended for producers of resources which involve several languages and links among them. Inevitably, such resources involve the modelling and creation of cross-lingual (CL) links. Such links enable CL access to lexical and semantic representation. They also facilitate dynamic computation (via federated queries) of lexical equivalences between languages.
@@ -130,7 +125,36 @@ Our main objective is to provide a perspective from which to resolve this proble
 			<figcaption><span class="fig-title">Adapted Vauquois triangle</span></figcaption>
 			</center>
       </figure>
-	  
+
+<p> The ontological referent serves as a natural vertex that joins the two edges, in each respective language, and allows traversing the triangle from one language to the other, reaching any possible lexical-semantic level from source to target and vice-versa. In reality, however, the common vertex is often missing, thus obliging to linking at other levels. </p>
+
+<p> The choice of levels is largely inspired by Ontolex, a W3C lexicon model for ontologies which includes some of the definitions reproduced below: </p>
+
+<p> We understand the ontological referent as a conceptual element, a unit of thought, that can be represented in terms of an ontology entity (class, property, or individual). We assume that it is language neutral and can be lexicalised differently in different languages and can be adapted (or not) to a particular cultural and/or linguistic view. Its adaptation to such different languages or cultural views results in the concept that we refer to in the figure, which belongs to the edge of a particular language.  </p>
+
+<p> In practice, the concept (as in the case of the ontological referent) can be defined through an ontology entity (e.g, class, property, or individual in OWL or RDFS; but also through a skos:Concept or ontolex:LexicalConcept).  </p>
+
+<p> As an illustrative example of a ontological referent we show here a concept defined as a Interlingual Lexical Concept (CILI) in Global Wordnet. Notice that although a description is given in English (other languages can be added), the intention is to have a common referent for such a concept no matter the particular language. </p>
+
+	<pre class="example">		
+&lt;i36300&gt;	a	&lt;Concept&gt; ;
+	skos:definition	"a flight maneuver; aircraft tips laterally about its longitudinal axis (especially in turning)"@en ;
+	dc:source	pwn30:00169305-n .
+</pre>
+	
+Such a common ontological referent can be associated with specific monolingual concepts. In our example, with Wordnet synsets in English and German:
+
+	<pre class="example">		
+ili:i36300 	owl:sameAs 	pwn31:100170126-n . # bank
+ili:i36300	owl:sameAs	odwn13:00169305-n . # rol, wenden, wending, rollen
+	</pre>		
+		
+<p>
+-------------------
+UNDER CONSTRUCTION
+-------------------
+</p>
+		
 	 <p> TBC
 	  </p>
     </section> 
