@@ -11,6 +11,13 @@
 	<script src="http://codemirror.net/addon/runmode/runmode.js"></script>
 	<script src="http://codemirror.net/addon/runmode/colorize.js"></script>
 
+
+
+	<script src="javascripts/codemirror-compressed.js"></script>
+	<script src="javascripts/sparql.js"></script>
+	<script src="javascripts/runmode.js"></script>
+	<script src="javascripts/colorize.js"></script>
+	  
     <script class='remove'>
       var respecConfig = {
 
@@ -138,16 +145,17 @@ Our main objective is to provide a perspective from which to resolve this proble
 
 	 <pre><code class="cm">	
 &lt;i36300&gt;	a	&lt;Concept&gt; ;
-	skos:definition	"a flight maneuver; aircraft tips laterally about its longitudinal axis (especially in turning)"@en ;
+	skos:definition	"a flight maneuver; aircraft tips laterally about its longitudinal 
+		         axis (especially in turning)"@en ;
 	dc:source	pwn30:00169305-n .
 	 </code></pre>
 	
 Such a common ontological referent can be associated with specific monolingual concepts. In our example, with Wordnet synsets in English and German:
 
-	<code>		
+ <pre><code>		
 ili:i36300 	owl:sameAs 	pwn31:100170126-n . # bank
 ili:i36300	owl:sameAs	odwn13:00169305-n . # rol, wenden, wending, rollen
-	</code>		
+ </pre></code>		
 		
 <p>
 -------------------
