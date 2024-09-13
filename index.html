@@ -132,7 +132,7 @@ Our main objective is to provide a perspective from which to resolve this proble
       <h2>Levels of cross-lingual linking</h2>
       <p> CL links associate items in one language with items expressed in another language. Such links are usually directional with the two languages being referred to as <em>source</em> and <em>target</em>. They are used to create resources for a variety of applications such as CL information retrieval, word translation, CL ontology mapping, and machine translation. </p>
       <p> Previous works have recognised that both monolingual and CL linking can occur at different levels. For instance, writing from a Semantic Web perspective, Gracia et al.  [<cite><a href="#bib-challenges">CHALLENGES</a></cite>] consider that links can be established at three different levels: <em>conceptual level</em>, where links are established between classes or properties as modelled in an ontology or vocabulary; <em>instance level</em>, where links are established between specific individuals/entities belonging to certain ontology classes; and <em>linguistic level</em>, where links are established between the linguistic manifestation of the ontology entities (e.g., their associated lexical entries). </p>
-       <p> To clarify the usage of levels in CL linking, we make use of the <em>Adapted Vauquois Triangle</em>, shown in <a href="#fig1"> Figure 1</a>, to present the various ways in which CL links can be implemented. This is an adaptation of the Vauquois Triangle, first proposed by Bernard Vauquois in 1968 [<cite><a href="#bib-vaqu">VAQU</a></cite>] to illustrate a range of possible architectures for rule-driven transfer-based MT systems current during the 1970s and 80s. Two important aspects of the original triangle are retained. First, the horizontal dimension reflects cross-linguality, the left and right sides referring to <em>source</em> and <em>target</em> languages respectively. Second, the vertical dimension represents different levels of semantic abstraction. The original triangle pre-specifies the intermediate levels. However, the adapted version differs in the number and choice of levels. At the bottom is the surface linguistic form, e.g., a word, and at the top is an ontological referent, i.e., something conceptual and purely semantic, constituting an entity or element within an ontology. In between these extremes, moving upward, are a series of levels that proceed from the surface towards the meaning.  </p>
+       <p> To clarify the usage of levels in CL linking, we make use of the <em>Adapted Vauquois Triangle</em>, shown in <a href="#fig1"> Figure 1</a>, to present the various ways in which CL links can be implemented. This is an adaptation of the Vauquois Triangle, first proposed by Bernard Vauquois in 1968 [<cite><a href="#bib-vauq">VAUQ</a></cite>] to illustrate a range of possible architectures for rule-driven transfer-based MT systems current during the 1970s and 80s. Two important aspects of the original triangle are retained. First, the horizontal dimension reflects cross-linguality, the left and right sides referring to <em>source</em> and <em>target</em> languages respectively. Second, the vertical dimension represents different levels of semantic abstraction. The original triangle pre-specifies the intermediate levels. However, the adapted version differs in the number and choice of levels. At the bottom is the surface linguistic form, e.g., a word, and at the top is an ontological referent, i.e., something conceptual and purely semantic, constituting an entity or element within an ontology. In between these extremes, moving upward, are a series of levels that proceed from the surface towards the meaning.  </p>
 	  
 	The adapted Vauquois triangle, for the cross-lingual linking case, is illustrated in the following figure.
 	   <br>
@@ -218,8 +218,32 @@ UNDER CONSTRUCTION
     <section>
       
 	  <h2> Guidelines for Cross-lingual Linking </h2>
-	  <p> TBC
-	  </p>
+	  <p> In this section we give advice on how to leverage an Adapted Vauquois Triangle-based representation in order to make more informed decisions when establishing cross-lingual (CL) links within the same or different language resources. This is the recommended procedure:
+
+<ol>
+	<li><b>Analyse</b>. Analyse the different lexical-semantic representation levels described in your data and draw your own version of the two edges of the Adapted Vauquois Triangle.
+	<li><b>Decide</b>. Among the different identified representation levels, decide the level at which the CL links will be defined. Choose the highest possible level first. If the description of the chosen level is not rich enough in your data, or the foreseen linking algorithm is unnecessarily complex, you can choose the next inferior level and iterate until you find the appropriate representation level. But move always from the top (more expressive) to the bottom (less expressive semantics). <it>Draw the chosen linking level in your triangle.</it> 
+	<ul>
+		<li>Note: Try to always establish links at the same level, and only in exceptional cases across different levels.
+	</ul>
+	<li><b>Implement</b>. Then decide on the ontology/model/properties that will be used to encode the CL links at the chosen level.
+	<ul>
+		<li>Note: If (and only if) a standard existing model is not applicable, define your own, BUT (1) document it using the Adapted Vauquois Triangle and (2) relate your model to standard existing models mentioned in this document as much as possible.  </p>
+	</ul>
+</ol>
+	    <p>The following flowchart represents the above recommended procedure:   </p>
+
+      <figure id="fig2">
+			<center>
+			<img style="width: 90%" src="./img/flow.svg" alt="Flowchart">
+			<figcaption><span class="fig-title">Recommended procedure flowchart</span></figcaption>
+			</center>
+      </figure>
+
+	<p> The rest of this document presents examples of the application of these guidelines to existing resources and explains in detail the available models and properties you should use when applicable.
+	</p>
+
+	    
     </section> 
 	
 	   <section>
