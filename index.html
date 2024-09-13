@@ -214,8 +214,8 @@ Notice that a common surface form may correspond to several lexical forms, e.g.,
 	  <p> In this section we give advice on how to leverage an Adapted Vauquois Triangle-based representation in order to make more informed decisions when establishing cross-lingual (CL) links within the same or different language resources. This is the recommended procedure:
 
 <ol>
-	<li><b>Analyse</b>. Analyse the different lexical-semantic representation levels described in your data and draw your own version of the two edges of the Adapted Vauquois Triangle.
-	<li><b>Decide</b>. Among the different identified representation levels, decide the level at which the CL links will be defined. Choose the highest possible level first. If the description of the chosen level is not rich enough in your data, or the foreseen linking algorithm is unnecessarily complex, you can choose the next inferior level and iterate until you find the appropriate representation level. But move always from the top (more expressive) to the bottom (less expressive semantics). <it>Draw the chosen linking level in your triangle.</it> 
+	<li><b>Analyse</b>. Analyse the different lexical-semantic representation levels described in your data and <em>draw your own version of the two edges of the Adapted Vauquois Triangle</em>.
+	<li><b>Decide</b>. Among the different identified representation levels, decide the level at which the CL links will be defined. Choose the highest possible level first. If the description of the chosen level is not rich enough in your data, or the foreseen linking algorithm is unnecessarily complex, you can choose the next inferior level and iterate until you find the appropriate representation level. But move always from the top (more expressive) to the bottom (less expressive semantics). <em>Draw the chosen linking level in your triangle.</em> 
 	<ul>
 		<li>Note: Try to always establish links at the same level, and only in exceptional cases across different levels.
 	</ul>
@@ -239,40 +239,40 @@ Notice that a common surface form may correspond to several lexical forms, e.g.,
 	    
     </section> 
 	
-	   <section>
+    <section>
       
-	  <h2> Examples of Cross-lingual Linking </h2>
-	  <p> Below we show some examples of datasets that incorporate CL linking in different ways, as can be readily seen using the Adapted Vauquois Triangle.  </p>
+	<h2> Examples of Cross-lingual Linking </h2>
+	<p> Below we show some examples of datasets that incorporate CL linking in different ways, as can be readily seen using the Adapted Vauquois Triangle.  </p>
 
-	  <section>
-		<h3> Global/Open Multilingual Wordnet </h3>
-<p>Gathering experiences from Princeton Wordnet and Open Multilingual Wordnet, the <a href="http://globalwordnet.org/resources/global-wordnet-grid/"> Global Wordnet Grid </a> gathers wordnets in different languages aligned through the Collaborative InterLingual Index (CILI) that serves as a pivot between languages  [<cite><a href="#bib-gwnet">GNET</a></cite>]. With this organisation, CL links are available as the composition of <tt>ontolex:sense</tt> relations and its inverse, with eventual relations between lexical concepts (here CILI items) in case of a non direct translation. </p>
+	<section>
+	  <h3> Global/Open Multilingual Wordnet </h3>
+	  <p>Gathering experiences from Princeton Wordnet and Open Multilingual Wordnet, the <a href="http://globalwordnet.org/resources/global-wordnet-grid/"> Global Wordnet Grid </a> gathers wordnets in different languages aligned through the Collaborative InterLingual Index (CILI) that serves as a pivot between languages  [<cite><a href="#bib-gwnet">GWNET</a></cite>].
+	<!--With this organisation, CL links are available as the composition of <tt>ontolex:sense</tt> relations and its inverse, with eventual relations between lexical concepts (here CILI items) in case of a non direct translation. -->Global Wordnet Grid / Open Multilingual Wordnet cross-lingual links are possible through the CILI used as a pivot between languages. See <a htref="#fig3">Figure 3</a> </p>
 
 		    <figure id="fig3">
 			<center>
 			<img style="width: 90%" src="./img/AdaptedVauquoisWNet.png" alt="Adapted Vauquois GlobalWordNet">
-			<figcaption><span class="fig-title">Global Wordnet Grid / Open Multilingual Wordnet cross-lingual links are only possible through the CILI used as a pivot between languages</span></figcaption>
+			<figcaption><span class="fig-title">Global Wordnet Grid / Open Multilingual Wordnet cross-lingual links are possible through the CILI used as a pivot between languages</span></figcaption>
 			</center>
-      </figure>
+      		    </figure>
 
+	</section>
 
-		  Global Wordnet Grid / Open Multilingual Wordnet cross-lingual links are only possible through the CILI used as a pivot between languages
-
-		  
-		  
-	  </section>
-		   
-    </section> 
-	
-	
-	<p>
+	<section>
+	<h3> WikiData </h3>
+	<p></p>
+<p>
 -------------------
 UNDER CONSTRUCTION
 -------------------
 </p>
 		
-	 <p> TBC
-	  </p>
+	</section>
+	    
+    </section> 
+	
+	
+
 
 	  
 	<section>
@@ -308,7 +308,7 @@ UNDER CONSTRUCTION
 <dt id="bib-challenges">[CHALLENGES]</dt>
 <dd>J. Gracia, E. Montiel-Ponsoda, P. Cimiano, A. Gomez-Perez, P. Buitelaar, and J.P. McCrae. <a href="https://www.sciencedirect.com/science/article/pii/S1570826811000783" > <cite>Challenges for the multilingual web of data</cite>. Journal of Web Semantics, 11:63–71. 2012
 
-<dt id="bib-GWNET">[GWNET]</dt>
+<dt id="bib-gwnet">[GWNET]</dt>
 <dd> P. Vossen, F. Bond and J.P. McCrae. <a href="https://aclanthology.org/2016.gwc-1.59"> Toward a truly multilingual GlobalWordnet Grid.</a> In C. Fellbaum, P. Vossen, V. B. Mititelu, & C. Forascu (Eds.), Proceedings of the 8th Global WordNet Conference (GWC) (pp. 424–431). Global Wordnet Association. 2016.
 
 
