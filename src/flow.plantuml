@@ -26,7 +26,7 @@ partition "Decide" {
     :What is the highest level I can reach for cross-lingual links;
 
 repeat 
-    :evaluate the effort to maintain links at this level;
+    :Evaluate the effort to maintain links at this level;
     backward:Try a lower level;
     note right
   If possible try to keep the same level for //source// and //target//
