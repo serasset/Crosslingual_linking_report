@@ -104,14 +104,25 @@ Our main objective is to provide a perspective from which to resolve this proble
 		<p> We are concerned here with language resources that contain descriptions of lexical items, such as dictionaries, thesauri, ontologies, terminologies, taxonomies, and encyclopaedic resources. This is not meant to be an exhaustive list, and it excludes resources that are highly composite, such as corpora, which are essentially collections and may incorporate CL links internally. Such resources may be within the scope of future versions of these guidelines.
 
 		</p>
-  
-  <!--      <p>The type of language resources covered in this document is <i>bilingual electronic dictionaries</i>. A <a href="http://en.wikipedia.org/wiki/Bilingual_dictionary">bilingual dictionary</a> is a specialized dictionary used to translate words or phrases from one language to another. They can be unidirectional or bidirectional, allowing translation, in the latter case, to and from both languages. In addition to the translation, a bilingual dictionary usually indicates the part of speech, gender, verb type, declination model and other grammatical properties to help a non-native speaker use the word. 
-	  </p><p>
-	  We are interested in bilingual dictionaries that have their data in a machine-processable format, no matter whether it is stored locally or is accessible on the Web (e.g., for download). We assume that the data is represented in a structured or semi-structured way (e.g., relational database, xml, csv, etc.).
-	  </p><p>
-	  We will illustrate our discussion with real examples from the conversion of the Apertium dictionaries into RDF [<cite><a href="#bib-ap_rdf">AP_RDF</a></cite>]. Apertium [<cite><a href="#bib-ap_paper">AP_PAPER</a></cite>] is a free/open-source machine translation platform originally designed to translate between closely related languages, although it has recently been expanded to treat more divergent language pairs. There exist Lexical Markup Framework [<cite><a href="#bib-lmf">LMF</a></cite>] versions of their linguistic data which can be found <a href="http://metashare.upf.edu/repository/search/?q=apertium+lmf">here</a></cite> and have been used as starting point for the RDF version.  TO UPDATE WITH REFERENCE TO ORIGINAL APERTIUM FORMATS AND MORE RECENT CONVERSION IN ISWC'21 PAPER
+
+      <h3>Conventions in this document</h3>	   
+	<p> Throughout this document, we will use <a href="https://www.w3.org/TR/turtle/"> Turtle RDF </a>a> syntax to provide examples. The following table shows a list of relevant namespaces that will be used in the rest of this document.
       </p>
--->  
+  
+<table class="nss">
+<caption> <a href="#ns"> Table 1</a>: Namespaces of the relevant vocabularies </caption>
+<tbody>
+<tr><td><b>owl</b></td><td>&lt;http://www.w3.org/2002/07/owl#&gt;</td></tr>
+<tr><td><b>rdfs</b></td><td>&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</td></tr>
+<tr><td><b>ontolex</b></td><td>&lt;http://www.w3.org/ns/lemon/ontolex#&gt;</td></tr>
+<tr><td><b>lexinfo</b></td><td>&lt;http://www.lexinfo.net/ontology/2.0/lexinfo#&gt;</td></tr>
+<tr><td><b>skos</b></td><td>&lt;http://www.w3.org/2004/02/skos##&gt;</td></tr>
+
+
+
+</tbody>
+</table>
+
   </section> 
  
  </section>
@@ -138,10 +149,10 @@ Our main objective is to provide a perspective from which to resolve this proble
 
 <p> In practice, the concept (as in the case of the ontological referent) can be defined through an ontology entity (e.g, class, property, or individual in OWL or RDFS; but also through a skos:Concept or ontolex:LexicalConcept).  </p>
 
-<p> As an illustrative example of a ontological referent we show here a concept defined as a Interlingual Lexical Concept (CILI) in Global Wordnet. Notice that although a description is given in English (other languages can be added), the intention is to have a common referent for such a concept no matter the particular language. </p>
+<p> As an illustrative example of a ontological referent we show here a concept defined as a Interlingual Lexical Concept (CILI) in Global Wordnet (for simplicity, we are defining it as a SKOS Concept). Notice that although a description is given in English (other languages can be added), the intention is to have a common referent for such a concept no matter the particular language: </p>
 
  <pre><code>
-&lt;i36300&gt; a &lt;Concept&gt; ;
+&lt;i36300&gt; a skos:Concept ;
                skos:definition "a flight maneuver; aircraft tips laterally about its longitudinal 
                                 axis (especially in turning)"@en ;
                dc:source pwn30:00169305-n .
