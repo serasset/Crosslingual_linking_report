@@ -247,7 +247,7 @@ Notice that a common surface form may correspond to several lexical forms, e.g.,
 	<section>
 	  <h3> Global/Open Multilingual Wordnet </h3>
 	  <p>Gathering experiences from Princeton Wordnet and Open Multilingual Wordnet, the <a href="http://globalwordnet.org/resources/global-wordnet-grid/"> Global Wordnet Grid </a> gathers wordnets in different languages aligned through the Collaborative InterLingual Index (CILI) that serves as a pivot between languages  [<cite><a href="#bib-gwnet">GWNET</a></cite>].
-	<!--With this organisation, CL links are available as the composition of <tt>ontolex:sense</tt> relations and its inverse, with eventual relations between lexical concepts (here CILI items) in case of a non direct translation. -->Global Wordnet Grid / Open Multilingual Wordnet cross-lingual links are possible through the CILI used as a pivot between languages. See <a htref="#fig3">Figure 3</a> </p>
+	<!--With this organisation, CL links are available as the composition of <tt>ontolex:sense</tt> relations and its inverse, with eventual relations between lexical concepts (here CILI items) in case of a non direct translation. -->Global Wordnet Grid / Open Multilingual Wordnet cross-lingual links are possible through the CILI used as a pivot between languages. See <a href="#fig3">Figure 3</a>. </p>
 
 		    <figure id="fig3">
 			<center>
@@ -260,7 +260,16 @@ Notice that a common surface form may correspond to several lexical forms, e.g.,
 
 	<section>
 	<h3> WikiData </h3>
-	<p></p>
+	<p>Wikidata is a free and open knowledge base of structured links and a sister project of Wikipedia  [<cite><a href="#bib-wdata">WDATA</a></cite>]. In 2018, Wikidata extended its model to improve modelling for lexical entities such as words and phrases, with the Wikibase Lexeme extension. Wikibase uses its own Lexeme data model, where basic concepts and relationships are defined to describe lexemes, but it also provides an alignment with the Ontolex Lemon model. Within Wikibase, there are both horizontal CL links at the sense level, e.g., translations (<tt>wdt:P5972</tt>), and compositional ones through properties such as “item for this sense” (<tt>wdt:P5137</tt>) relating a sense to a ontological reference, offering a non-direct translation, as shown in <a href="#fig4">Figure 4</a>. </p> 
+	</p>
+		    <figure id="fig4">
+			<center>
+			<img style="width: 90%" src="./img/AdaptedVauquoisWikidata.png" alt="Adapted Vauquois Wikidata">
+			<figcaption><span class="fig-title">Wikibase cross-lingual links are modelled as relations at the lexical sense level, and through the ontological Items as pivot between languages.</span></figcaption>
+			</center>
+      		    </figure>
+
+		
 <p>
 -------------------
 UNDER CONSTRUCTION
@@ -350,7 +359,9 @@ UNDER CONSTRUCTION
 <dt id="bib-void">[VOID]</dt>
 <dd>K. Alexander, R. Cyganiak, M. Hausenblas, J. Zhao, Describing Linked Datasets with the VoID Vocabulary. W3C Interest Group Note. March 2011. URL: <a href="http://www.w3.org/TR/void/">http://www.w3.org/TR/void/</a>
 
-
+<dt id="bib-wdata">[WDATA]</dt>
+<dd>D. Vrandečić and M. Krötzsch. 2014. <a href=" https://doi.org/10.1145/2629489">Wikidata: a free collaborative knowledgebase</a>. Communication of ACM vol. 57, issue 10, pp. 78-85. October 2014.
+	
 </body>
 <script>
  setTimeout(function(){CodeMirror.colorize();}, 20);
