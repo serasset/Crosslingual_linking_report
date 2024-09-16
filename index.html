@@ -274,7 +274,7 @@ Notice that a common surface form may correspond to several lexical forms, e.g.,
 	<section>
 
 	<h3> Apertium RDF</h3>
-	<p>In 2018, many bilingual dictionaries from the Apertium Machine Translaiton system [<cite><a href="#bib-ap_paper">AP</a></cite>] were converted into RDF [<cite><a href="#bib-AP_RDF">AP_RDF</a></cite>] following the first version of the lemon model. Later in 2020, Apertium RDF version was expanded to 53 dictionares and updated to the Ontolex lemon model [<cite><a href="#bib-AP_RDF2">AP_RDF2</a></cite>]. In this process, the lexica of both source and target languages were extracted and translations were encoded as links from the source ontolex:LexicalSense to the target ontolex:LexicalSense. Hence, the resulting dataset contains "horizontal" CL links at the lexical sense level, as illustrated in <a href="#fig5">Figure 5</a>. </p> 
+	<p>In 2018, many bilingual dictionaries from the Apertium Machine Translaiton system [<cite><a href="#bib-ap">AP</a></cite>] were converted into RDF [<cite><a href="#bib-AP_RDF">AP_RDF</a></cite>] following the first version of the lemon model. Later in 2020, Apertium RDF version was expanded to 53 dictionares and updated to the Ontolex lemon model [<cite><a href="#bib-AP_RDF2">AP_RDF2</a></cite>]. In this process, the lexica of both source and target languages were extracted and translations were encoded as links from the source ontolex:LexicalSense to the target ontolex:LexicalSense. Hence, the resulting dataset contains "horizontal" CL links at the lexical sense level, as illustrated in <a href="#fig5">Figure 5</a>. </p> 
 		   
 		    <figure id="fig5">
 			<center>
@@ -282,52 +282,87 @@ Notice that a common surface form may correspond to several lexical forms, e.g.,
 			<figcaption><span class="fig-title">Apertium RDF cross-lingual links modelled as relations at the lexical sense level.</span></figcaption>
 			</center>
       		    </figure>
+
+		<section>
+
+	<h3> DBnary</h3>
+
+<p>With DBnary [<cite><a href="#bib-dbnary">DBNARY</a></cite>],  many Wiktionary language editions are extracted and modelled using Ontolex lemon. In this process, many translations are extracted and represented in RDF. However, the different language editions are independent of the others, hence, translations are encoded in the lexicon of the source language whilst the translation itself is a string in the target language that is not connected to the target lexicon. Indeed, in some cases, the given string is descriptive and cannot be linked to any Lexical Entry in the target language. In such a context, it is not possible to systematically encode translations as “horizontal” links, i.e., between Lexical Senses or between Lexical Entries. Hence, the DBnary dataset adopts an ad-hoc representation of translation that systematically links the source Lexical Entries with surface form in the target language. Additionally, and when possible, the source Lexical Sense is also linked to the Translation. This modelling is illustrated in <a href="#fig6">Figure 6</a>. </p>
+
+ <figure id="fig6">
+	<center>
+	<img style="width: 90%" src="./img/AdaptedVauquoisDBnary.png" alt="Adapted Vauquois DBnary">
+	<figcaption><span class="fig-title">DBnary cross-lingual links relating a source Lexical Entry with a target surface form. In green, the eventual source lexical sense, when this information is provided in Wiktionary.</span></figcaption>
+	</center>
+ </figure>
+<p>These examples illustrate the fact that even when using Ontolex as a unique modelling ontology, a given dataset may have specific characteristics that need to be clearly identified when it comes to the way in which CL links are modelled. </p>
+	
+  	 </section>
+	    
+   </section> 
+	
+	  
+   <section>
+   <h2> CL links Representation Mechanisms </h2>
+	  <p> We now turn to look at the mechanisms that are currently available to express CL linking. There are a number of available mechanisms for representing cross-lingual links in RDF (see [LLD_BOOK]), which we summarise here.	  </p>
+
+	<section>
+	<h3>Cross-lingual links at the conceptual level</h3>
+Ideally, ontological referents could act as a pivot to move from one language to the other. However this language independent pivot is not always available. When the upper available level is the (monolingual) concept, relations can be established between them using <it>identity links</it>, e.g., <tt>owl:sameAs</tt> or <tt>owl:equivalentClass</tt>, whenever the two entities refer exactly to the same thing. E.g.:
+ <pre><code>
+	ontology1:Banco rdfs:label “banco”@es ;
+                	rdfs:comment “Una institución financiera que [...]”@es .
+	ontology2:Bank 	rdfs:label "bank"@en ;
+              	 	rdfs:comment “A financial institution that [...]”@en .
+	ontology1:Banco owl:equivalentClass ontology2:Bank .
+ </code></pre>
 		
-		
-<p>
--------------------
-UNDER CONSTRUCTION
--------------------
-</p>
+In case the matching is not exact but approximate, we can use <it>soft links</it> such as <tt>rdfs:seeAlso</tt>, <tt>skos:closeMatch</tt>, or <tt>skos:exactMatch</tt>.  
+
+When linking at the conceptual level, one may face lexical gaps (concepts that are not realised in a specific language) or conceptual mismatches (lexical concepts) that only partly share a common meaning, e.g.. "rice"@en in English (cooked or uncooked grain) vs "beras"@id (raw grain) and "nasi"@id (cooked grain) in Indonesian.
+
+To solve this issue, ontology properties that account for taxonomical relations can be used  between lexical concepts or ontology entities in different languages. For this purpose, we can consider the use of SKOS properties, like <tt>skos:broader</tt>, <tt>skos:narrower</tt> or <tt>skos:exactMatch</tt>. Also <tt>rdfs:subClassOf</tt> whenever appropriate.
+
+Example: 
+ <pre><code>
+ontology1:Rice rdfs:label “rice”@en . 
+ontology2:Beras rdfs:label “beras”@id . 
+ontology2:Beras rdfs:subClassOf ontology1:Rice .
+</code></pre>
 		
 	</section>
-	    
-    </section> 
-	
-	
 
 
-	  
-	<section>
-   <h2> Representation mechanisms </h2>
-	  <p> TBC
-	  
-	 [ Something extracted/adapted from this reference card https://lider-project.eu/lider-project.eu/sites/default/files/referencecards/How-to-represent-crosslingual-links-Reference-Card.pdf. See https://www.w3.org/TR/dwbp/#bp-template for inspiration ]
+	   
+   </section> 
 
+   <section>
+   <h2> Summary </h2>
+	  <p> By following these guidelines, publishers of lexical resources that contain CL links in the context of linguistic linked open data (LLOD) will be able to choose their CL links representation using standard vocabularies or justify and document the use of non standard link representation when standard vocabularies are not applicable, thus allowing consumers of linked lexical resources to better understand the CL linking scheme used and facilitate the querying of such resources. Finally, with clear documentation of the semantic level implied in CL links, consumers will be able to better integrate different lexical resources to make them interoperable.
 	  </p>
     </section> 
- 
+
+    <section>
    <h2>Acknowledgements</h2>
-   The authors would like to thank the BPMLOD community group members for their valuable feedback. 
-   
-   <h2>References</h2> TO BE UPDATED
+   The editors would like to thank the BPMLOD community group members for their valuable feedback. 
+   </section>
+
+   <section>    
+   <h2>References</h2> 
 
     
-<dt id="bib-ap_paper">[AP]</dt>
+<dt id="bib-ap">[AP]</dt>
 <dd> M. Forcada, M. Ginestí-Rosell, J. Nordfalk, J. O'Regan, S. Ortiz-Rojas, J. Pérez-Ortiz, F. Sánchez-Martínez, G. Ramírez-Sánchez, and F. Tyers,  <a href="http://link.springer.com/article/10.1007%2Fs10590-011-9090-0"> <cite>Apertium: a free/open-source platform for rule-based machine translation </cite></a>. Machine Translation, vol. 25, no. 2, pp. 127-144, 2011. 
 
 <dt id="bib-ap_rdf">[AP_RDF]</dt>
 <dd>J. Gracia, M. Villegas, A. Gómez-Pérez, and N. Bel. <a href="https://doi.org/10.3233/SW-170258">The Apertium bilingual dictionaries on the web of data</a>. Semantic Web, 9(2), 231–240. 2018
 	
-<dt id="bib-ap_rdf">[AP_RDF2]</dt>
+<dt id="bib-ap_rdf2">[AP_RDF2]</dt>
 <dd>J. Gracia, C. Fäth, M. Hartung, M. Ionov, J. Bosque-Gil, S. Veríssimo, C. Chiarcos, and M. Orlikowski (2020). <a href="https://doi.org/10.1007/978-3-030-62466-8_31">Leveraging Linguistic Linked Data for Cross-Lingual Model Transfer in the Pharmaceutical Domain </a>. In B. Fu & A. Polleres (Eds.), Proc. of 19th International Semantic Web Conference (ISWC 2020) (pp. 499–514). Springer. 2020 
-	
-<dt id="bib-dc">[DC]</dt>
-<dd>DCMI Metadata Terms. URL: <a href="http://purl.org/dc/elements/1.1/">http://purl.org/dc/elements/1.1/</a>
 
-<dt id="bib-dcat">[DCAT]</dt>
-<dd>F. Maali, J. Erickson (Eds.). Data Catalog Vocabulary (DCAT). W3C Recommendation. January 2014 URL: <a href="http://www.w3.org/TR/vocab-dcat/">http://www.w3.org/TR/vocab-dcat/</a>
-
+<dt id="bib-dbnary">[DBNARY]</dt>
+<dd> G. Sérasset. <a href="https://doi.org/10.3233/SW-140147"> DBnary: Wiktionary as a Lemon-Based Multilingual Lexical Resource in RDF </a>. Semantic Web – Interoperability, Usability, Applicability, Multilingual Linked Open Data, 6 (4), 355–361. 2015 
+	    
 <dt id="bib-guide_mld">[GUIDE_MLD]</dt>
 <dd>A. Gómez-Pérez, D. Vila-Suero, E. Montiel-Ponsoda, J. Gracia, and G. Aguado-de Cea, <a href="http://dx.doi.org/10.1145/2479787.2479867"> <cite> Guidelines for multilingual linked data </cite></a>, in Proceedings of the 3rd International Conference on Web Intelligence, Mining and Semantics (WIMS'13).  New York, NY, USA: ACM, Jun. 2013.
 
@@ -345,7 +380,9 @@ UNDER CONSTRUCTION
 <dt id="bib-lemon_paper">[LEMON_PAPER]</dt>
 <dd>J. McCrae, G. Aguado-de Cea, P. Buitelaar, P. Cimiano, T. Declerck, A. Gómez-Pérez, J. Gracia, L. Hollink, E. Montiel-Ponsoda, D. Spohr, and T. Wunner, <a href="http://dx.doi.org/10.1007/s10579-012-9182-3"> <cite>Interchanging lexical resources on the Semantic Web </cite></a>.  Language Resources and Evaluation, vol. 46, 2012.  
   
-
+<dt id="bib-lld_book">[LLD_BOOK]</dt>
+<dd> P. Cimiano, C. Chiarcos, J.P. McCrae, J. Gracia, “Link representation and discovery”, in Linguistic Linked Data: Representation, Generation and Applications. (pp. 181-196). Springer International Publishing. 2020. 
+	
 <dt id="bib-lexinfo">[LEXINFO]</dt>
 <dd> Lexinfo.  URL: <a href="https://lexinfo.net/index.html">https://lexinfo.net/index.html</a> 
 
@@ -378,7 +415,9 @@ UNDER CONSTRUCTION
 
 <dt id="bib-wdata">[WDATA]</dt>
 <dd>D. Vrandečić and M. Krötzsch. 2014. <a href=" https://doi.org/10.1145/2629489">Wikidata: a free collaborative knowledgebase</a>. Communication of ACM vol. 57, issue 10, pp. 78-85. October 2014.
-	
+
+   </section>
+
 </body>
 <script>
  setTimeout(function(){CodeMirror.colorize();}, 20);
