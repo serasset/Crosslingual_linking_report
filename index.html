@@ -269,6 +269,20 @@ Notice that a common surface form may correspond to several lexical forms, e.g.,
 			</center>
       		    </figure>
 
+	</section>
+
+	<section>
+
+	<h3> Apertium RDF</h3>
+	<p>In 2018, many bilingual dictionaries from the Apertium Machine Translaiton system [<cite><a href="#bib-ap_paper">AP</a></cite>] were converted into RDF [<cite><a href="#bib-AP_RDF">AP_RDF</a></cite>] following the first version of the lemon model. Later in 2020, Apertium RDF version was expanded to 53 dictionares and updated to the Ontolex lemon model [<cite><a href="#bib-AP_RDF2">AP_RDF2</a></cite>]. In this process, the lexica of both source and target languages were extracted and translations were encoded as links from the source ontolex:LexicalSense to the target ontolex:LexicalSense. Hence, the resulting dataset contains "horizontal" CL links at the lexical sense level, as illustrated in <a href="#fig5">Figure 5</a>. </p> 
+		   
+		    <figure id="fig5">
+			<center>
+			<img style="width: 90%" src="./img/AdaptedVauquoisApertium.png" alt="Adapted Vauquois Apertium">
+			<figcaption><span class="fig-title">Apertium RDF cross-lingual links modelled as relations at the lexical sense level.</span></figcaption>
+			</center>
+      		    </figure>
+		
 		
 <p>
 -------------------
@@ -299,12 +313,15 @@ UNDER CONSTRUCTION
    <h2>References</h2> TO BE UPDATED
 
     
-<dt id="bib-ap_paper">[AP_PAPER]</dt>
+<dt id="bib-ap_paper">[AP]</dt>
 <dd> M. Forcada, M. Ginestí-Rosell, J. Nordfalk, J. O'Regan, S. Ortiz-Rojas, J. Pérez-Ortiz, F. Sánchez-Martínez, G. Ramírez-Sánchez, and F. Tyers,  <a href="http://link.springer.com/article/10.1007%2Fs10590-011-9090-0"> <cite>Apertium: a free/open-source platform for rule-based machine translation </cite></a>. Machine Translation, vol. 25, no. 2, pp. 127-144, 2011. 
 
 <dt id="bib-ap_rdf">[AP_RDF]</dt>
-<dd>RDF version of the Apertium bilingual dictionaries. URL: <a href="http://linguistic.linkeddata.es/apertium/">http://linguistic.linkeddata.es/apertium/</a>
-
+<dd>J. Gracia, M. Villegas, A. Gómez-Pérez, and N. Bel. <a href="https://doi.org/10.3233/SW-170258">The Apertium bilingual dictionaries on the web of data</a>. Semantic Web, 9(2), 231–240. 2018
+	
+<dt id="bib-ap_rdf">[AP_RDF2]</dt>
+<dd>J. Gracia, C. Fäth, M. Hartung, M. Ionov, J. Bosque-Gil, S. Veríssimo, C. Chiarcos, and M. Orlikowski (2020). <a href="https://doi.org/10.1007/978-3-030-62466-8_31">Leveraging Linguistic Linked Data for Cross-Lingual Model Transfer in the Pharmaceutical Domain </a>. In B. Fu & A. Polleres (Eds.), Proc. of 19th International Semantic Web Conference (ISWC 2020) (pp. 499–514). Springer. 2020 
+	
 <dt id="bib-dc">[DC]</dt>
 <dd>DCMI Metadata Terms. URL: <a href="http://purl.org/dc/elements/1.1/">http://purl.org/dc/elements/1.1/</a>
 
