@@ -116,8 +116,9 @@ Our main objective is to provide a perspective from which to resolve this proble
 <tr><td><b>owl</b></td><td>&lt;http://www.w3.org/2002/07/owl#&gt;</td></tr>
 <tr><td><b>rdfs</b></td><td>&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</td></tr>
 <tr><td><b>ontolex</b></td><td>&lt;http://www.w3.org/ns/lemon/ontolex#&gt;</td></tr>
+<tr><td><b>vartrans</b></td><td>&lt;http://www.w3.org/ns/lemon/vartrans#&gt;</td></tr>
 <tr><td><b>lexinfo</b></td><td>&lt;http://www.lexinfo.net/ontology/2.0/lexinfo#&gt;</td></tr>
-<tr><td><b>skos</b></td><td>&lt;http://www.w3.org/2004/02/skos##&gt;</td></tr>
+<tr><td><b>skos</b></td><td>&lt;http://www.w3.org/2004/02/skos#&gt;</td></tr>
 
 
 
@@ -304,7 +305,7 @@ Notice that a common surface form may correspond to several lexical forms, e.g.,
 	  
    <section>
    <h2> CL links Representation Mechanisms </h2>
-	  <p> We now turn to look at the mechanisms that are currently available to express CL linking. There are a number of available mechanisms for representing cross-lingual links in RDF (see [LLD_BOOK]), which we summarise here.	  </p>
+	  <p> We now turn to look at the mechanisms that are currently available to express CL linking. There are a number of available mechanisms for representing cross-lingual links in RDF (see [<cite><a href="#bib-lld_book">LLD_BOOK</a></cite>]), which we summarise here.	  </p>
 
 	<section>
 	<h3>Cross-lingual links at the conceptual level</h3>
@@ -336,12 +337,14 @@ ontology2:Beras rdfs:subClassOf ontology1:Rice .
 <p>The Ontolex lemon model proposes the vartrans module to encode CL relations at the linguistic levels. This module should be used when applicable (i.e., when enough linguistic information is available to do so).</p>
 <p>
 Vartrans defines three top level object properties:
-<tt>vartrans:lexicalRel</tt> defines relations between two lexical entries.
-<tt>vartrans:senseRel</tt> defines relations between two lexical senses.
-<tt>vartrans:conceptRel</tt> defines relations between two lexical concepts.
+<ul>
+	<li><tt>vartrans:lexicalRel</tt> defines relations between two lexical entries.
+	<li><tt>vartrans:senseRel</tt> defines relations between two lexical senses.
+	<li><tt>vartrans:conceptRel</tt> defines relations between two lexical concepts.
+</ul>
 </p>
 <p>It also defines two instances of the preceding relations for standard cross-link representations:
-<tt>vartrans:translatableAs</tt> that links two lexical entries that are translations of each other,
+<tt>vartrans:translatableAs</tt> that links two lexical entries that are translations of each other, and
 <tt>vartrans:translation</tt> that links two lexical senses that are translations of each other.
 </p>
 
@@ -366,7 +369,7 @@ Vartrans defines three top level object properties:
 :bench-en vartrans:translatableAs :banco-es
 	 </code></pre>
 		 
-<p>In case more information needs to be attached to the translation itself (e.g., confidence degree, provenance, …) we can use the class vartrans:Translation that reifies the vartrans:translation property, as in the following example (taken from Cimiano et al., 2020):
+<p>In case more information needs to be attached to the translation itself (e.g., confidence degree, provenance, …) we can use the class vartrans:Translation that reifies the vartrans:translation property, as in the following example (taken from [<cite><a href="#bib-lld_book">LLD_BOOK</a></cite>]):
 </p>
 
 	 <pre><code>
@@ -382,7 +385,7 @@ Vartrans defines three top level object properties:
                    vartrans:target :banco-es-sense .
 	</code></pre>
 <p>
-We should note that formally, vartrans:LexicoSemanticRelation allows for the linking between different semantic levels (it may relate a LexicalSense with a LexicalEntry); however, other classes are restricted to links on the same semantic level. Hence, a resource which systematically gives CL links from source LexicalSense to target LexicalEntry may use a reified class <tt>ex:TranslationRel</tt> that should be defined as a subClass of <tt>vartrans:LexicoSemanticRelation</tt>. However, a full discussion of this topic takes us beyond the scope of these guidelines.
+We should note that formally, <tt>vartrans:LexicoSemanticRelation</tt> allows for the linking between different semantic levels (it may relate a LexicalSense with a LexicalEntry); however, other classes are restricted to links on the same semantic level. Hence, a resource which systematically gives CL links from source LexicalSense to target LexicalEntry may use a reified class <tt>ex:TranslationRel</tt> that should be defined as a subClass of <tt>vartrans:LexicoSemanticRelation</tt>. However, a full discussion of this topic takes us beyond the scope of these guidelines.
 </p>
 	
 	</section>
