@@ -1,82 +1,79 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Guidelines for Cross-lingual linking</title>
+    <meta charset='utf-8'>
+    <script src='https://www.w3.org/Tools/respec/respec-w3c'
+            async class='remove'></script>
+    <link rel="stylesheet" href="stylesheets/codemirror.css"> 
+    <script src="javascripts/codemirror-compressed.js"></script>
+    <script src="http://codemirror.net/mode/sparql/sparql.js"></script>
+    <script src="http://codemirror.net/addon/runmode/runmode.js"></script>
+    <script src="http://codemirror.net/addon/runmode/colorize.js"></script>
 
-<head>
-  <title>Guidelines for Cross-lingual linking</title>
-  <meta charset='utf-8'>
-  <script src='https://www.w3.org/Tools/respec/respec-w3c' async
-    class='remove'></script>
-  <link rel="stylesheet" href="stylesheets/codemirror.css">
-  <script src="javascripts/codemirror-compressed.js"></script>
-  <script src="http://codemirror.net/mode/sparql/sparql.js"></script>
-  <script src="http://codemirror.net/addon/runmode/runmode.js"></script>
-  <script src="http://codemirror.net/addon/runmode/colorize.js"></script>
+    <script src="javascripts/sparql.js"></script>
+    <script src="javascripts/runmode.js"></script>
+    <script src="javascripts/colorize.js"></script>
+	  
+    <script class='remove'>
+      var respecConfig = {
 
-  <script class='remove'>
-    var respecConfig = {
-
-      specStatus: "CG-DRAFT",
-      doRDFa: "1.1",
-      shortName: "cl-bpmlod",
-      publishDate: "2023-11-08",
-      editors: [
-        {
-          name: "TBC",
-          url: "TBC",
-          company: "TBC",
-          companyURL: "TBC"
-        }
-      ],
-      authors: [
-        {
-          name: "TBC",
-          url: "TBC",
-          company: "TBC",
-          companyURL: "TBC"
-        },
-        {
-          name: "TBC",
-          url: "TBC",
-          company: "TBC",
-          companyURL: "TBC"
-        },
-
-      ],
-      group: "bpmlod",
-      previousMaturity: "",
-      previousPublishDate: "",
-      wg: "Best Practices for Multilingual Linked Open Data",
-      wgURI: "http://www.w3.org/community/bpmlod/",
-      wgPublicList: "http://lists.w3.org/Archives/Public/public-bpmlod/",
-      //          wgPatentURI:  "http://www.w3.org/2004/01/pp-impl/424242/status",
-    };
-  </script>
-  <link rel="stylesheet" href="stylesheets/codemirror.css">
-  <script src="javascripts/codemirror.js"></script>
-</head>
-
-<body>
-  <section id='abstract'>
-    <p>
-      This document is aimed to give advice on different representation
-      mechanisms to link data across different languages on the Semantic Web. We
-      will first enumerate the types of language resources where such guidelines
-      are applicable. Then, we will review different levels of cross-lingual
-      linking, following an adapted version of the Vauquois triangle as
-      inspiration. We will analyze each possibility (e.g., linking at the
-      conceptual level, at the lexical level, etc.), exemplify them with real
-      cases, and discuss their pros and cons. Finally we will review, from a
-      practical point of view, the different representation mechanisms available
-      to describe links across linguistic data in different languages. Note that
-      this guidelines focus on general representation issues of cross-lingual
-      data, not entering into any techniques for cross-lingual link discovery or
-      ontology mapping.
-    </p>
-
-
-
-  </section>
-
+          specStatus: "CG-DRAFT",
+          doRDFa: "1.1",
+          shortName:  "cl-bpmlod",
+		  publishDate:  "2024-09-05",
+          editors: [
+               {   name:       "Jorge Gracia",
+                    url:        "http://jogracia.url.ph/web/",
+                    company:    "University of Zaragoza",
+                    companyURL: "https://www.unizar.es/" },
+	       {   name:       "Gilles Sérasset",
+                    url:        "https://serasset.bitbucket.io/",
+                    company:    "Universite Grenoble Alpes",
+                    companyURL: "https://www.univ-grenoble-alpes.fr/" }
+          ],
+		  authors: [
+               {   name:       "Katerina Gkirtzou",
+                    url:        "TBC",
+                    company:    "Athena",
+                    companyURL: "https://www.ilsp.gr/en/members/gkirtzou-katerina-2/" },
+	       {   name:       "Jorge Gracia",
+                    url:        "http://jogracia.url.ph/web/",
+                    company:    "University of Zaragoza",
+                    companyURL: "https://www.unizar.es/" },
+		{   name:       "Ilan Kernerman",
+                    url:        "https://www.linkedin.com/in/ilan-kernerman/",
+                    company:    "Lexicala by K Dictionaries",
+                    companyURL: "https://lexicala.com/" },
+		{   name:       "Michael Rosner",
+                    url:        "https://www.um.edu.mt/profile/mikerosner",
+                    company:    "University of Malta",
+                    companyURL: "https://www.um.edu.mt/" },
+		{   name:       "Gilles Sérasset",
+                    url:        "https://serasset.bitbucket.io/",
+                    company:    "Universite Grenoble Alpes",
+                    companyURL: "https://www.univ-grenoble-alpes.fr/" }			
+          ],
+		  group: "bpmlod",
+		  previousMaturity: "",
+	      previousPublishDate:  "",
+          wg:           "Best Practices for Multilingual Linked Open Data",
+          wgURI:        "http://www.w3.org/community/bpmlod/",
+          wgPublicList: "http://lists.w3.org/Archives/Public/public-bpmlod/",
+//          wgPatentURI:  "http://www.w3.org/2004/01/pp-impl/424242/status",
+      };
+    </script>
+	<link rel="stylesheet" href="stylesheets/codemirror.css">
+    <script src="javascripts/codemirror.js"></script>
+  </head>
+  <body>
+    <section id='abstract'>
+      <p> 
+  This document aims to give advice on different representation mechanisms for linking data across different languages on the Semantic Web. We first outline the scope of the guidelines, clarifying the intended audience and the types of language resources to which they apply. Then, inspired by an adapted version of the Vauquois Triangle, we review the different possible levels of representation at which cross-lingual linking can be implemented. Then, we give concrete advice on how to model cross-lingual links in the light of an adapted Vauquois Triangle. We exemplify this with real examples.  Finally, we review, from a practical point of view, the different representation mechanisms available to describe links across linguistic data in different languages. Note that whilst recognising the relevance of techniques for automated cross-lingual link discovery, these guidelines focus on general representation issues of cross-lingual data.
+	      
+     </p>   
+ 
+    </section>
 
   <section id='sotd'>
     <!--    <p>This document was published by the <a href="http://www.w3.org/community/bpmlod/">Best Practices for Multilingual Linked Open Data</a> community group.
@@ -102,182 +99,359 @@
   </section>
 
 
-  <p>
-    -------------------
-    UNDER CONSTRUCTION
-    -------------------
-  </p>
+ <section>
+    <h2>Scope of Guidelines</h2>
+    These guidelines are intended for producers of resources which concern several languages and links among them. Inevitably, such resources involve the modelling and creation of cross-lingual (CL) links. Such links enable CL access to lexical and semantic representation. They also facilitate dynamic computation (via federated queries) of lexical equivalences between languages.
 
+There are diverse ways in which such links can be implemented, depending on which kinds of entities are linked and the relations available to link them together. This diversity gives rise to the problem of choosing an implementation method. 
 
-  <section>
-    <h2>Types of resources</h2>
-    <p> TBC
-      [ Quick enumeration of the types of language resources that can be subject
-      of this guidelines, despite we will exemplify just a few of them
-      (dictionaries, mostly) to keep the guidelines simple. Dictionaries,
-      ontologies, terminologies, taxonomies, encyclopedic resources; we will
-      focus on entity-centered resources. ]
+Our main objective is to provide a perspective from which to resolve this problem based on an adapted version of the Vauquois Triangle  (Vauquois 1968). This offers a point of departure for comparing different CL linking methods within the linguistic linked (open) data (LLD) framework and thus a basis for practical advice on how to proceed with linking data associated with different languages. 
+ 
+   <section>
+      <h3>Types of resources</h3>
+		<p> We are concerned here with language resources that contain descriptions of lexical items, such as dictionaries, thesauri, ontologies, terminologies, taxonomies, lexical, and encyclopaedic resources. This is not meant to be an exhaustive list, and it excludes resources that are highly composite, such as corpora, which are essentially collections and may incorporate CL links internally. Such resources may be within the scope of future versions of these guidelines.
 
-    </p>
-
-    <!--      <p>The type of language resources covered in this document is <i>bilingual electronic dictionaries</i>. A <a href="http://en.wikipedia.org/wiki/Bilingual_dictionary">bilingual dictionary</a> is a specialized dictionary used to translate words or phrases from one language to another. They can be unidirectional or bidirectional, allowing translation, in the latter case, to and from both languages. In addition to the translation, a bilingual dictionary usually indicates the part of speech, gender, verb type, declination model and other grammatical properties to help a non-native speaker use the word. 
-	  </p><p>
-	  We are interested in bilingual dictionaries that have their data in a machine-processable format, no matter whether it is stored locally or is accessible on the Web (e.g., for download). We assume that the data is represented in a structured or semi-structured way (e.g., relational database, xml, csv, etc.).
-	  </p><p>
-	  We will illustrate our discussion with real examples from the conversion of the Apertium dictionaries into RDF [<cite><a href="#bib-ap_rdf">AP_RDF</a></cite>]. Apertium [<cite><a href="#bib-ap_paper">AP_PAPER</a></cite>] is a free/open-source machine translation platform originally designed to translate between closely related languages, although it has recently been expanded to treat more divergent language pairs. There exist Lexical Markup Framework [<cite><a href="#bib-lmf">LMF</a></cite>] versions of their linguistic data which can be found <a href="http://metashare.upf.edu/repository/search/?q=apertium+lmf">here</a></cite> and have been used as starting point for the RDF version.  TO UPDATE WITH REFERENCE TO ORIGINAL APERTIUM FORMATS AND MORE RECENT CONVERSION IN ISWC'21 PAPER
+		</p>
+   </section>
+   <section>	 
+      <h3>Conventions in this document</h3>	   
+	<p> Throughout this document, we will use <a href="https://www.w3.org/TR/turtle/"> Turtle RDF </a> syntax to provide RDF examples. The following table shows a list of relevant namespaces that will be used in the rest of this document.
       </p>
--->
-  </section>
+  
+<table class="nss" id="table1">
+<caption> Namespaces of the relevant vocabularies </caption>
+<tbody>
+<tr><td><b>owl</b></td><td>&lt;http://www.w3.org/2002/07/owl#&gt;</td></tr>
+<tr><td><b>rdfs</b></td><td>&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</td></tr>
+<tr><td><b>ontolex</b></td><td>&lt;http://www.w3.org/ns/lemon/ontolex#&gt;</td></tr>
+<tr><td><b>vartrans</b></td><td>&lt;http://www.w3.org/ns/lemon/vartrans#&gt;</td></tr>
+<tr><td><b>lexinfo</b></td><td>&lt;http://www.lexinfo.net/ontology/2.0/lexinfo#&gt;</td></tr>
+<tr><td><b>skos</b></td><td>&lt;http://www.w3.org/2004/02/skos#&gt;</td></tr>
 
 
-  <section>
-    <h2>Levels of cross-lingual linking</h2>
-    <p> TBC
-    </p>
 
-    <section>
+</tbody>
+</table>
 
-      <h3> The adapted Vaquois triangle </h3>
-      <p> TBC
-
-        The adapted Vaquois triangle, for the cross-lingual linking case, is
-        illustrated in the following figure.
-        <br>
+  </section> 
+ 
+ </section>
+	
+	  <section>
+      <h2>Levels of cross-lingual linking</h2>
+      <p> CL links associate items in one language with items expressed in another language. Such links are usually directional with the two languages being referred to as <em>source</em> and <em>target</em>. They are used to create resources for a variety of applications such as CL information retrieval, word translation, CL ontology mapping, and machine translation. </p>
+      <p> Previous works have recognised that both monolingual and CL linking can occur at different levels. For instance, writing from a Semantic Web perspective, Gracia et al.  [<cite><a href="#bib-challenges">CHALLENGES</a></cite>] consider that links can be established at three different levels: <em>conceptual level</em>, where links are established between classes or properties as modelled in an ontology or vocabulary; <em>instance level</em>, where links are established between specific individuals/entities belonging to certain ontology classes; and <em>linguistic level</em>, where links are established between the linguistic manifestation of the ontology entities (e.g., their associated lexical entries). </p>
+       <p> To clarify the usage of levels in CL linking, we make use of the <em>Adapted Vauquois Triangle</em>, shown in <a href="#fig1"> Figure 1</a>, to present the various ways in which CL links can be implemented. This is an adaptation of the Vauquois Triangle, first proposed by Bernard Vauquois in 1968 [<cite><a href="#bib-vauq">VAUQ</a></cite>] to illustrate a range of possible architectures for rule-driven transfer-based MT systems current during the 1970s and 80s. Two important aspects of the original triangle are retained. First, the horizontal dimension reflects cross-linguality, the left and right sides referring to <em>source</em> and <em>target</em> languages respectively. Second, the vertical dimension represents different levels of semantic abstraction. The original triangle pre-specifies the intermediate levels. However, the adapted version differs in the number and choice of levels. At the bottom is the surface linguistic form, e.g., a word, and at the top is an ontological referent, i.e., something conceptual and purely semantic, constituting an entity or element within an ontology. In between these extremes, moving upward, are a series of levels that proceed from the surface towards the meaning.  </p>
+	  
+	The adapted Vauquois triangle, for the cross-lingual linking case, is illustrated in the following figure.
+	   <br>
       <figure id="fig1">
-        <center>
-          <img style="width: 90%" src="./img/Adapted Vaquois.png"
-            alt="Adapted Vaquois triangle.png">
-          <figcaption><span class="fig-title">Adapted Vaquois triangle</span>
-          </figcaption>
-        </center>
+			<center>
+			<img style="width: 90%" src="./img/Adapted Vauquois.png" alt="Adapted Vauquois triangle">
+			<figcaption><span class="fig-title">Adapted Vauquois Triangle</span></figcaption>
+			</center>
       </figure>
 
-      </p>
-    </section>
+<p> The ontological referent serves as a natural vertex that joins the two edges, in each of the languages, and allows traversing the triangle from one to the other, reaching any possible lexical-semantic level from source to target and vice-versa. In reality, however, the common vertex is often missing, thus obliging to link at other levels. </p>
+
+<p> The choice of levels is largely inspired by Ontolex [<cite><a href="#bib-ontolex">ONTOLEX</a></cite>, <cite><a href="#bib-ontolex_paper">ONTOLEX_PAPER</a></cite>], a W3C lexicon model for ontologies, which includes some of the definitions reproduced below: </p>
+
+<p> We understand the <b>ontological referent</b> as a conceptual element, a unit of thought, that can be represented in terms of an ontology entity (class, property, or individual). We assume that it is language neutral and can be lexicalised differently in different languages and can be adapted (or not) to a particular cultural and/or linguistic view. Its adaptation to such different languages or cultural views results in the <b>concept</b> that we refer to in Figure 1, which belongs to the edge of a particular language.  </p>
+
+<p> In practice, the concept (as in the case of the ontological referent) can be defined through an ontology entity (e.g., class, property, or individual in OWL or RDFS; but also through a <tt>skos:Concept</tt> or <tt>ontolex:LexicalConcept</tt>).  </p>
+
+<p> As an illustrative example of an ontological referent we show here a concept defined as an Interlingual Lexical Concept (CILI) in Global Wordnet (notice that our example is an oversimplification of the real implementation of Global WordNet). Although a description is given in English (other languages can be added), the intention is to have a common referent for such a concept no matter the particular language: </p>
+
+ <pre><code>
+&lt;i36300&gt; a skos:Concept ;
+               skos:definition "a flight maneuver; aircraft tips laterally about its longitudinal 
+                                axis (especially in turning)"@en ;
+               dc:source pwn30:00169305-n .
+ </code></pre>
+	
+Such a common ontological referent can be associated with specific monolingual concepts. In our example, with Wordnet synsets in English and German:
+
+ <pre><code>		
+ili:i36300 	owl:sameAs 	pwn31:100170126-n . # bank
+ili:i36300	owl:sameAs	odwn13:00169305-n . # rol, wenden, wending, rollen
+ </pre></code>		
+
+A <b>lexical sense</b> represents the lexical meaning of a lexical entry when interpreted as referring to the corresponding ontology element. A lexical sense thus represents a reification of a pair of a uniquely determined lexical entry and a uniquely determined ontology entity it refers to. A link between a lexical entry and an ontology entity via a lexical sense object implies that the lexical entry can be used to refer to the ontology entity in question. 
+
+A <b>lexical entry</b> represents a unit of analysis of the lexicon consisting of a set of forms that are grammatically related and a set of base meanings that are associated with all of these forms. Thus, a lexical entry is a word, multiword expression or affix with a single part-of-speech, morphological pattern, etymology and set of senses.
+
+In the following example, different lexical senses can be defined to associate different WordNet concepts with the lexical entry for “bank”:
+
+<pre><code>	
+:bank_n1 a ontolex:LexicalEntry;
+    ontolex:sense :bank_sense1;
+    ontolex:sense :bank_sense2.
+	
+:bank_sense1 a ontolex:LexicalSense;
+    ontolex:reference pwn31:100170126-n. #bank as a “flight maneuver”
+	
+:bank_sense2 a ontolex:LexicalSense;
+    ontolex:reference pwn31:108437235-n.   #bank as a “depository financial institution”
+</code></pre>	
+
+	
+The <b>lexical form</b> property relates a lexical entry to one grammatical form variant of the lexical entry. ​​It represents one grammatical realisation of a lexical entry. Different forms are used to express different morphological realisations of the entry (e.g., plural vs singular or canonical vs non-canonical). 
+Finally, a form can have an associated <em>written representation</em>, but also others such as the <em>phonetic representation</em>. We refer to such a “bottom” representation level as <b>surface form</b> in this document, despite the term not being used as such in the Ontolex specification. 
+
+For example, the plural form of the English noun 'bank' may be described by the following lexical form, with their corresponding surface forms (written and phonetic representations, in the example):
+
+<pre><code>	
+:bank_n1 ontolex:lexicalForm :bank-n1-pl-form.
+
+:bank_n1_pl_form a ontolex:LexicalForm ;
+                 ontolex:writtenRep “banks”@en; 
+                 ontolex:phoneticRep “/bæŋks/”@en-fonipa; 
+                 lexinfo:number lexinfo:plural . 
+</code></pre>
+
+	
+Notice that a common surface form may correspond to several lexical forms, e.g., the surface form “banks”@en may correspond to several lexical forms, among which the plural form of the noun 'bank' or the third person singular form of the verb 'bank'. The same goes for the surface form “/bæŋks/”@en-fonipa. 
+
+
+		
+
+    </section> 
 
     <section>
+      
+	  <h2> Guidelines for Cross-lingual Linking </h2>
+	  <p> In this section we give advice on how to leverage an Adapted Vauquois Triangle-based representation in order to make more informed decisions when establishing cross-lingual (CL) links within the same or different language resources. This is the recommended procedure:
 
-      <h3> Examples </h3>
-      <p> TBC
-      </p>
-    </section>
+<ol>
+	<li><b>Analyse</b>. Analyse the different lexical-semantic representation levels described in your data and <em>draw your own version of the two edges of the Adapted Vauquois Triangle</em>.
+	<li><b>Decide</b>. Among the different identified representation levels, decide the level at which the CL links will be defined. Choose the highest possible level first. If the description of the chosen level is not rich enough in your data, or the foreseen linking algorithm is unnecessarily complex, you can choose the next inferior level and iterate until you find the appropriate representation level. But move always from the top (more expressive) to the bottom (less expressive semantics). <em>Draw the chosen linking level in your triangle.</em> 
+	<ul>
+		<li>Note: Try to always establish links at the same level, and only in exceptional cases across different levels.
+	</ul>
+	<li><b>Implement</b>. Then decide on the ontology/model/properties that will be used to encode the CL links at the chosen level.
+	<ul>
+		<li>Note: If (and only if) a standard existing model is not applicable, define your own, BUT (1) document it using the Adapted Vauquois Triangle and (2) relate your model to standard existing models mentioned in this document as much as possible.  </p>
+	</ul>
+</ol>
+	    <p>The following flowchart represents the above recommended procedure:   </p>
 
+      <figure id="fig2">
+			<center>
+			<img style="width: 100%" src="./img/flow.svg" alt="Flowchart">
+			<figcaption><span class="fig-title">Recommended procedure flowchart</span></figcaption>
+			</center>
+      </figure>
+
+	<p> The rest of this document presents examples of the application of these guidelines to existing resources and explains in detail the available models and properties you should use when applicable.
+	</p>
+
+	    
+    </section> 
+	
+    <section>
+      
+	<h2> Examples of Cross-lingual Linking </h2>
+	<p> Below we show some examples of datasets that incorporate CL linking in different ways, as can be readily seen using the Adapted Vauquois Triangle.  </p>
+
+	<section>
+	  <h3> Global/Open Multilingual Wordnet </h3>
+	  <p>Gathering experiences from Princeton Wordnet and Open Multilingual Wordnet, the <a href="http://globalwordnet.org/resources/global-wordnet-grid/"> Global Wordnet Grid </a> gathers wordnets in different languages aligned through the Collaborative InterLingual Index (CILI) that serves as a pivot between languages  [<cite><a href="#bib-gwnet">GWNET</a></cite>].
+	<!--With this organisation, CL links are available as the composition of <tt>ontolex:sense</tt> relations and its inverse, with eventual relations between lexical concepts (here CILI items) in case of a non direct translation. -->Global Wordnet Grid / Open Multilingual Wordnet cross-lingual links are possible through the CILI used as a pivot between languages. See <a href="#fig3">Figure 3</a>. </p>
+
+		    <figure id="fig3">
+			<center>
+			<img style="width: 90%" src="./img/AdaptedVauquoisWNet.png" alt="Adapted Vauquois GlobalWordNet">
+			<figcaption><span class="fig-title">Global Wordnet Grid / Open Multilingual Wordnet cross-lingual links are possible through the CILI used as a pivot between languages</span></figcaption>
+			</center>
+      		    </figure>
+
+	</section>
+
+	<section>
+	<h3> WikiData </h3>
+	<p>Wikidata is a free and open knowledge base of structured links and a sister project of Wikipedia  [<cite><a href="#bib-wdata">WDATA</a></cite>]. In 2018, Wikidata extended its model to improve modelling for lexical entities such as words and phrases, with the Wikibase Lexeme extension. Wikibase uses its own Lexeme data model, where basic concepts and relationships are defined to describe lexemes, but it also provides an alignment with the Ontolex Lemon model. Within Wikibase, there are both horizontal CL links at the sense level, e.g., translations (<tt>wdt:P5972</tt>), and compositional ones through properties such as “item for this sense” (<tt>wdt:P5137</tt>) relating a sense to a ontological reference, offering a non-direct translation, as shown in <a href="#fig4">Figure 4</a>. </p> 
+	</p>
+		    <figure id="fig4">
+			<center>
+			<img style="width: 90%" src="./img/AdaptedVauquoisWikidata.png" alt="Adapted Vauquois Wikidata">
+			<figcaption><span class="fig-title">Wikibase cross-lingual links are modelled as relations at the lexical sense level, and through the ontological Items as pivot between languages.</span></figcaption>
+			</center>
+      		    </figure>
+
+	</section>
+
+	<section>
+
+	<h3> Apertium RDF</h3>
+	<p>In 2018, many bilingual dictionaries from the Apertium Machine Translaiton system [<cite><a href="#bib-ap">AP</a></cite>] were converted into RDF [<cite><a href="#bib-ap_rdf">AP_RDF</a></cite>] following the first version of the lemon model. Later in 2020, Apertium RDF version was expanded to 53 dictionares and updated to the Ontolex lemon model [<cite><a href="#bib-ap_rdf2">AP_RDF2</a></cite>]. In this process, the lexica of both source and target languages were extracted and translations were encoded as links from the source ontolex:LexicalSense to the target ontolex:LexicalSense. Hence, the resulting dataset contains "horizontal" CL links at the lexical sense level, as illustrated in <a href="#fig5">Figure 5</a>. </p> 
+		   
+		    <figure id="fig5">
+			<center>
+			<img style="width: 90%" src="./img/AdaptedVauquoisApertium.png" alt="Adapted Vauquois Apertium">
+			<figcaption><span class="fig-title">Apertium RDF cross-lingual links modelled as relations at the lexical sense level.</span></figcaption>
+			</center>
+      		    </figure>
+
+		<section>
+
+	<h3> DBnary</h3>
+
+<p>With DBnary [<cite><a href="#bib-dbnary">DBNARY</a></cite>],  many Wiktionary language editions are extracted and modelled using Ontolex lemon. In this process, many translations are extracted and represented in RDF. However, the different language editions are independent of the others, hence, translations are encoded in the lexicon of the source language whilst the translation itself is a string in the target language that is not connected to the target lexicon. Indeed, in some cases, the given string is descriptive and cannot be linked to any Lexical Entry in the target language. In such a context, it is not possible to systematically encode translations as “horizontal” links, i.e., between Lexical Senses or between Lexical Entries. Hence, the DBnary dataset adopts an ad-hoc representation of translation that systematically links the source Lexical Entries with surface form in the target language. Additionally, and when possible, the source Lexical Sense is also linked to the Translation. This modelling is illustrated in <a href="#fig6">Figure 6</a>. </p>
+
+ <figure id="fig6">
+	<center>
+	<img style="width: 90%" src="./img/AdaptedVauquoisDBnary.png" alt="Adapted Vauquois DBnary">
+	<figcaption><span class="fig-title">DBnary cross-lingual links relating a source Lexical Entry with a target surface form. In green, the eventual source lexical sense, when this information is provided in Wiktionary.</span></figcaption>
+	</center>
+ </figure>
+<p>These examples illustrate the fact that even when using Ontolex as a unique modelling ontology, a given dataset may have specific characteristics that need to be clearly identified when it comes to the way in which CL links are modelled. </p>
+	
+  	 </section>
+	    
+   </section> 
+	
+	  
+   <section>
+   <h2> CL links Representation Mechanisms </h2>
+	  <p> We now turn to look at the mechanisms that are currently available to express CL linking. There are a number of available mechanisms for representing cross-lingual links in RDF (see [<cite><a href="#bib-lld_book">LLD_BOOK</a></cite>]), which we summarise here.	  </p>
+
+	<section>
+	<h3>Cross-lingual links at the conceptual level</h3>
+Ideally, ontological referents could act as a pivot to move from one language to the other. However this language independent pivot is not always available. When the upper available level is the (monolingual) concept, relations can be established between them using <it>identity links</it>, e.g., <tt>owl:sameAs</tt> or <tt>owl:equivalentClass</tt>, whenever the two entities refer exactly to the same thing. E.g.:
+ <pre><code>
+ontology1:Banco rdfs:label “banco”@es ;
+               	rdfs:comment “Una institución financiera que [...]”@es .
+ontology2:Bank 	rdfs:label "bank"@en ;
+       	 	rdfs:comment “A financial institution that [...]”@en .
+ontology1:Banco owl:equivalentClass ontology2:Bank .
+ </code></pre>
+		
+In case the matching is not exact but approximate, we can use <it>soft links</it> such as <tt>rdfs:seeAlso</tt>, <tt>skos:closeMatch</tt>, or <tt>skos:exactMatch</tt>.  
+
+When linking at the conceptual level, one may face lexical gaps (concepts that are not realised in a specific language) or conceptual mismatches (lexical concepts) that only partly share a common meaning, e.g.. "rice"@en in English (cooked or uncooked grain) vs "beras"@id (raw grain) and "nasi"@id (cooked grain) in Indonesian.
+
+To solve this issue, ontology properties that account for taxonomical relations can be used  between lexical concepts or ontology entities in different languages. For this purpose, we can consider the use of SKOS properties, like <tt>skos:broader</tt>, <tt>skos:narrower</tt> or <tt>skos:exactMatch</tt>. Also <tt>rdfs:subClassOf</tt> whenever appropriate.
+
+Example: 
+ <pre><code>
+ontology1:Rice rdfs:label “rice”@en . 
+ontology2:Beras rdfs:label “beras”@id . 
+ontology2:Beras rdfs:subClassOf ontology1:Rice .
+</code></pre>
+		
+	</section>
+	<section>
+	<h3>Cross-lingual links at the linguistic level (the Vartrans module)</h3>
+<p>The Ontolex lemon model proposes the vartrans module to encode CL relations at the linguistic levels. This module should be used when applicable (i.e., when enough linguistic information is available to do so).</p>
+<p>
+Vartrans defines three top level object properties:
+<ul>
+	<li><tt>vartrans:lexicalRel</tt> defines relations between two lexical entries.
+	<li><tt>vartrans:senseRel</tt> defines relations between two lexical senses.
+	<li><tt>vartrans:conceptRel</tt> defines relations between two lexical concepts.
+</ul>
+</p>
+<p>It also defines two instances of the preceding relations for standard cross-link representations:
+<tt>vartrans:translatableAs</tt> that links two lexical entries that are translations of each other, and
+<tt>vartrans:translation</tt> that links two lexical senses that are translations of each other.
+</p>
+
+<p>Finally, it introduces the <tt>vartrans:Translations</tt> class for the reification of the later relation.</p>
+
+<p>We can illustrate the expressive power of this model on the adapted Vauquois Triangle in <a href="#fig7">Figure 7</a>. </p>
+
+ <figure id="fig7">
+	<center>
+	<img style="width: 90%" src="./img/AdaptedVauquoisVartrans.png" alt="Adapted Vauquois Vartrans">
+	<figcaption><span class="fig-title">The vartrans cross-lingual relations and their levels in the Vauquois triangle.</span></figcaption>
+	</center>
+ </figure>
+
+<p>Let’s see an example of a translation mediated by vartrans:translatableAs property.</p>
+
+	 <pre><code>
+:bench-en a ontolex:LexicalEntry ;
+            ontolex:lexicalForm [ontolex:writtenRep "bench"@en] .
+:banco-es a ontolex:LexicalEntry ;
+            ontolex:lexicalForm [ontolex:writtenRep "banco"@es] .
+:bench-en vartrans:translatableAs :banco-es
+	 </code></pre>
+		 
+<p>In case more information needs to be attached to the translation itself (e.g., confidence degree, provenance, …) we can use the class vartrans:Translation that reifies the vartrans:translation property, as in the following example (taken from [<cite><a href="#bib-lld_book">LLD_BOOK</a></cite>]):
+</p>
+
+	 <pre><code>
+:bench-en-sense a ontolex:LexicalSense ;
+                ontolex:isSenseOf :bench-en ;
+                ontolex:reference ontology1:bench .
+:banco-es-sense a ontolex:LexicalSense ;
+                ontolex:isSenseOf :banco-es ;
+                ontolex:reference ontology2:banco .
+
+:bench_banco-trans a vartrans:Translation ;
+                   vartrans:source :bench-en-sense ;
+                   vartrans:target :banco-es-sense .
+	</code></pre>
+<p>
+We should note that formally, <tt>vartrans:LexicoSemanticRelation</tt> allows for the linking between different semantic levels (it may relate a LexicalSense with a LexicalEntry); however, other classes are restricted to links on the same semantic level. Hence, a resource which systematically gives CL links from source LexicalSense to target LexicalEntry may use a reified class <tt>ex:TranslationRel</tt> that should be defined as a subClass of <tt>vartrans:LexicoSemanticRelation</tt>. However, a full discussion of this topic takes us beyond the scope of these guidelines.
+</p>
+	
+	</section>
+	   
+   </section> 
+
+   <section>
+   <h2> Summary </h2>
+	  <p> By following these guidelines, publishers of lexical resources that contain CL links in the context of linguistic linked open data (LLOD) will be able to choose their CL links representation using standard vocabularies or justify and document the use of non standard link representation when standard vocabularies are not applicable, thus allowing consumers of linked lexical resources to better understand the CL linking scheme used and facilitate the querying of such resources. Finally, with clear documentation of the semantic level implied in CL links, consumers will be able to better integrate different lexical resources to make them interoperable.
+	  </p>
+    </section> 
 
     <section>
+   <h2>Acknowledgements</h2>
+   The editors would like to thank the BPMLOD community group members for their valuable feedback. 
+   </section>
 
-      <h3> Guidelines </h3>
-      <p> TBC
-      </p>
-    </section>
+   <section>    
+   <h2>References</h2> 
 
+    
+<dt id="bib-ap">[AP]</dt>
+<dd> M. Forcada, M. Ginestí-Rosell, J. Nordfalk, J. O'Regan, S. Ortiz-Rojas, J. Pérez-Ortiz, F. Sánchez-Martínez, G. Ramírez-Sánchez, and F. Tyers,  <a href="http://link.springer.com/article/10.1007%2Fs10590-011-9090-0"> <cite>Apertium: a free/open-source platform for rule-based machine translation </cite></a>. Machine Translation, vol. 25, no. 2, pp. 127-144, 2011. 
 
-    <section>
-    </section>
+<dt id="bib-ap_rdf">[AP_RDF]</dt>
+<dd>J. Gracia, M. Villegas, A. Gómez-Pérez, and N. Bel. <a href="https://doi.org/10.3233/SW-170258">The Apertium bilingual dictionaries on the web of data</a>. Semantic Web, 9(2), 231–240. 2018
+	
+<dt id="bib-ap_rdf2">[AP_RDF2]</dt>
+<dd>J. Gracia, C. Fäth, M. Hartung, M. Ionov, J. Bosque-Gil, S. Veríssimo, C. Chiarcos, and M. Orlikowski (2020). <a href="https://doi.org/10.1007/978-3-030-62466-8_31">Leveraging Linguistic Linked Data for Cross-Lingual Model Transfer in the Pharmaceutical Domain </a>. In B. Fu & A. Polleres (Eds.), Proc. of 19th International Semantic Web Conference (ISWC 2020) (pp. 499–514). Springer. 2020 
 
-    <section>
-      <h2> Representation mechanisms </h2>
-      <p> TBC
+<dt id="bib-challenges">[CHALLENGES]</dt>
+<dd>J. Gracia, E. Montiel-Ponsoda, P. Cimiano, A. Gomez-Perez, P. Buitelaar, and J.P. McCrae. <a href="https://www.sciencedirect.com/science/article/pii/S1570826811000783" > <cite>Challenges for the multilingual web of data</cite>. Journal of Web Semantics, 11:63–71. 2012
 
-        [ Something extracted/adapted from this reference card
-        https://lider-project.eu/lider-project.eu/sites/default/files/referencecards/How-to-represent-crosslingual-links-Reference-Card.pdf.
-        See https://www.w3.org/TR/dwbp/#bp-template for inspiration ]
+<dt id="bib-dbnary">[DBNARY]</dt>
+<dd> G. Sérasset. <a href="https://doi.org/10.3233/SW-140147"> DBnary: Wiktionary as a Lemon-Based Multilingual Lexical Resource in RDF </a>. Semantic Web – Interoperability, Usability, Applicability, Multilingual Linked Open Data, 6 (4), 355–361. 2015 
+	
+<dt id="bib-gwnet">[GWNET]</dt>
+<dd> P. Vossen, F. Bond and J.P. McCrae. <a href="https://aclanthology.org/2016.gwc-1.59"> Toward a truly multilingual GlobalWordnet Grid.</a> In C. Fellbaum, P. Vossen, V. B. Mititelu, & C. Forascu (Eds.), Proceedings of the 8th Global WordNet Conference (GWC) (pp. 424–431). Global Wordnet Association. 2016.
 
-      </p>
-    </section>
+<dt id="bib-lemon_paper">[LEMON_PAPER]</dt>
+<dd>J. McCrae, G. Aguado-de Cea, P. Buitelaar, P. Cimiano, T. Declerck, A. Gómez-Pérez, J. Gracia, L. Hollink, E. Montiel-Ponsoda, D. Spohr, and T. Wunner, <a href="http://dx.doi.org/10.1007/s10579-012-9182-3"> <cite>Interchanging lexical resources on the Semantic Web </cite></a>.  Language Resources and Evaluation, vol. 46, 2012.  
+  
+<dt id="bib-lld_book">[LLD_BOOK]</dt>
+<dd> P. Cimiano, C. Chiarcos, J.P. McCrae, J. Gracia, “Link representation and discovery”, in Linguistic Linked Data: Representation, Generation and Applications. (pp. 181-196). Springer International Publishing. 2020. 
+	
+<dt id="bib-ontolex">[ONTOLEX]</dt>
+<dd> Lexicon Model for Ontologies.  URL: <a href="https://www.w3.org/2016/05/ontolex/">https://www.w3.org/2016/05/ontolex/</a> 
 
-    <h2>Acknowledgements</h2>
-    The authors would like to thank the BPMLOD community group members for their
-    valuable feedback.
+<dt id="bib-ontolex_paper">[ONTOLEX_PAPER]</dt>
+<dd>John P McCrae, Julia Bosque-Gil, Jorge Gracia, Paul Buitelaar, and Philipp Cimiano, <a href="https://elex.link/elex2017/wp-content/uploads/2017/09/paper36.pdf"> <cite>The Ontolex-Lemon model: development and applications </cite></a>.  Proceedings of eLex 2017 conference.  
+  
+<dt id="bib-vauq">[VAUQ]</dt>
+<dd> B.Vauquois. A survey of formal grammars and algorithms for recognition and transformation in mechanical translation. In A. J. H. Morrel (ed.), IFIP Congress (2) (p./pp. 1114-1122). 1968.
+	
+<dt id="bib-wdata">[WDATA]</dt>
+<dd>D. Vrandečić and M. Krötzsch. 2014. <a href=" https://doi.org/10.1145/2629489">Wikidata: a free collaborative knowledgebase</a>. Communication of ACM vol. 57, issue 10, pp. 78-85. October 2014.
 
-    <h2>References</h2> TO BE UPDATED
-
-
-    <dt id="bib-ap_paper">[AP_PAPER]</dt>
-    <dd> M. Forcada, M. Ginestí-Rosell, J. Nordfalk, J. O'Regan, S. Ortiz-Rojas,
-      J. Pérez-Ortiz, F. Sánchez-Martínez, G. Ramírez-Sánchez, and F. Tyers, <a
-        href="http://link.springer.com/article/10.1007%2Fs10590-011-9090-0">
-        <cite>Apertium: a free/open-source platform for rule-based machine
-          translation </cite></a>. Machine Translation, vol. 25, no. 2, pp.
-      127-144, 2011.
-
-    <dt id="bib-ap_rdf">[AP_RDF]</dt>
-    <dd>RDF version of the Apertium bilingual dictionaries. URL: <a
-        href="http://linguistic.linkeddata.es/apertium/">http://linguistic.linkeddata.es/apertium/</a>
-
-    <dt id="bib-dc">[DC]</dt>
-    <dd>DCMI Metadata Terms. URL: <a
-        href="http://purl.org/dc/elements/1.1/">http://purl.org/dc/elements/1.1/</a>
-
-    <dt id="bib-dcat">[DCAT]</dt>
-    <dd>F. Maali, J. Erickson (Eds.). Data Catalog Vocabulary (DCAT). W3C
-      Recommendation. January 2014 URL: <a
-        href="http://www.w3.org/TR/vocab-dcat/">http://www.w3.org/TR/vocab-dcat/</a>
-
-    <dt id="bib-guide_mld">[GUIDE_MLD]</dt>
-    <dd>A. Gómez-Pérez, D. Vila-Suero, E. Montiel-Ponsoda, J. Gracia, and G.
-      Aguado-de Cea, <a href="http://dx.doi.org/10.1145/2479787.2479867"> <cite>
-          Guidelines for multilingual linked data </cite></a>, in Proceedings of
-      the 3rd International Conference on Web Intelligence, Mining and Semantics
-      (WIMS'13). New York, NY, USA: ACM, Jun. 2013.
-
-    <dt id="bib-isa_uris">[ISA_URIS]</dt>
-    <dd>P. Archer, S. Goedertier, and N. Loutas, <a
-        href="https://joinup.ec.europa.eu/sites/default/files/c0/7d/10/D7.1.3%20-%20Study%20on%20persistent%20URIs.pdf">
-        <cite> Study on persistent URIs </cite></a> Tech. Rep., ISA, Dec. 2012.
-
-    <dt id="bib-lemon_paper">[LEMON_PAPER]</dt>
-    <dd>J. McCrae, G. Aguado-de Cea, P. Buitelaar, P. Cimiano, T. Declerck, A.
-      Gómez-Pérez, J. Gracia, L. Hollink, E. Montiel-Ponsoda, D. Spohr, and T.
-      Wunner, <a href="http://dx.doi.org/10.1007/s10579-012-9182-3">
-        <cite>Interchanging lexical resources on the Semantic Web </cite></a>.
-      Language Resources and Evaluation, vol. 46, 2012.
-
-    <dt id="bib-lemon">[LEMON]</dt>
-    <dd> The lemon model. URL: <a
-        href="http://lemon-model.net/">http://lemon-model.net/</a>
-
-    <dt id="bib-lexinfo">[LEXINFO]</dt>
-    <dd> Lexinfo. URL: <a
-        href="https://lexinfo.net/index.html">https://lexinfo.net/index.html</a>
-
-    <dt id="bib-lmf">[LMF]</dt>
-    <dd> Lexical Markup Framework (LMF). URL: <a
-        href="http://www.lexicalmarkupframework.org/">http://www.lexicalmarkupframework.org/</a>
-
-    <dt id="bib-ontolex">[ONTOLEX]</dt>
-    <dd> Lexicon Model for Ontologies. URL: <a
-        href="https://www.w3.org/2016/05/ontolex/">https://www.w3.org/2016/05/ontolex/</a>
-
-    <dt id="bib-ontolex_paper">[ONTOLEX_PAPER]</dt>
-    <dd>John P McCrae, Julia Bosque-Gil, Jorge Gracia, Paul Buitelaar, and
-      Philipp Cimiano, <a
-        href="https://elex.link/elex2017/wp-content/uploads/2017/09/paper36.pdf">
-        <cite>The Ontolex-Lemon model: development and applications </cite></a>.
-      Proceedings of eLex 2017 conference.
-
-
-    <dt id="bib-tr">[TR]</dt>
-    <dd> Translation Module. URL: <a
-        href="http://purl.org/net/translation">http://purl.org/net/translation</a>
-
-
-    <dt id="bib-tr_paper">[TR_PAPER]</dt>
-    <dd> J. Gracia, E. Montiel-Ponsoda, D. Vila-Suero, and G. Aguado-de Cea, <a
-        href="http://www.lrec-conf.org/proceedings/lrec2014/pdf/863_Paper.pdf">
-        <cite>Enabling language resources to expose translations as linked data
-          on the web</cite></a>, in Proc. of 9th Language Resources and
-      Evaluation Conference (LREC'14), Reykjavik (Iceland), May 2014.
-
-
-    <dt id="bib-trcat">[TRCAT]</dt>
-    <dd> OEG Translation Categories. URL: <a
-        href="http://purl.org/net/translation-categories">http://purl.org/net/translation-categories</a>
-
-    <dt id="bib-void">[VOID]</dt>
-    <dd>K. Alexander, R. Cyganiak, M. Hausenblas, J. Zhao, Describing Linked
-      Datasets with the VoID Vocabulary. W3C Interest Group Note. March 2011.
-      URL: <a href="http://www.w3.org/TR/void/">http://www.w3.org/TR/void/</a>
-
+   </section>
 
 </body>
 <script>

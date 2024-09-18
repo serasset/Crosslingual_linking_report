@@ -1,0 +1,54 @@
+@startuml
+skinparam shadowing false
+
+title Modelling Cross-Lingual links in your Lexical Resource\n
+
+skinparam activity {
+    StartColor limegreen
+    EndColor darkblue
+    BackgroundColor #d4de5e
+    BorderColor #5e94de
+    ArrowColor black
+}
+skinparam activityDiamond {
+    BackgroundColor #5ede68
+    BorderColor #5e94de
+    fontSize 16
+}
+
+start
+partition "Analyse" {
+    :What are the lexico-semantic representation levels in my resource;
+    :Draw the Vauquois Triangle with my own edges;
+}
+
+partition "Decide" {
+    :What is the highest level I can reach for cross-lingual links;
+
+repeat 
+    :Evaluate the effort to maintain links at this level;
+    backward:Try a lower level;
+    note right
+  If possible try to keep the same level for //source// and //target//
+  ====
+  * this is not an absolute requirement
+end note
+repeat while (cross-lingual links may be implemented?) is (no)
+
+-> yes;
+    :Document my cross-lingual links in my Vauquois Triangle; 
+}
+partition "Implement" {
+
+    if (an existing or standard vocabulary exists to link from/to the chosen levels ?) then (yes)
+        :Model my cross-lingual links with 
+    the <b>existing classes/properties</b>;
+    else (no)
+        :Create my own classes/properties;
+        :Link my classes/properties to existing standards (in OWL);
+    endif
+    :Document my modelling using my Vauquois Triangle;
+}
+
+stop
+@enduml
